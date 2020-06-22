@@ -16,82 +16,91 @@
 <map name='prior'>beast.math.distributions.Prior</map>
 
     <beauticonfig spec='BeautiConfig'
-        inputLabelMap='beast.core.MCMC.operator=Operators,
-	        beast.core.MCMC.logger=Loggers,
-			beast.evolution.sitemodel.SiteModel.mutationRate =Substitution Rate'
-        inlinePlugins ='beast.core.MCMC.distribution,
-            beast.evolution.sitemodel.SiteModel.substModel,
-            beast.evolution.tree.coalescent.ExponentialGrowth,
-            beast.evolution.tree.coalescent.ConstantPopulation,
-            beast.evolution.tree.coalescent.Coalescent,
-            beast.core.State.stateNode'
-        collapsedPlugins ='beast.core.MCMC.logger'
-        suppressPlugins = 'beast.core.MCMC.operator,
-    		beast.core.MCMC.operatorschedule,
-	        beast.evolution.tree.coalescent.Coalescent.treeIntervals,
-	        beast.evolution.tree.coalescent.Coalescent.tree,
-	        beast.core.MCMC.state,
-	        beast.core.MCMC.distribution,
-	        beast.core.MCMC.init,
-	        beast.evolution.speciation.BirthDeathGernhard08Model.treeIntervals,
-	        beast.evolution.speciation.BirthDeathGernhard08Model.tree,
-	        beast.evolution.speciation.BirthDeathGernhard08Model.sampleProbability,
-			beast.evolution.speciation.TMAYuleModel.treeIntervals,
-			beast.evolution.speciation.TMAYuleModel.useTipDates,
-			beast.evolution.speciation.TMAYuleModel.tree,
-	        beast.evolution.tree.Tree,
-	        beast.evolution.tree.Tree.trait,
-	        beast.evolution.tree.Tree.taxa,
-	        beast.evolution.tree.Tree.taxonset,
-	        beast.evolution.tree.RandomTree.trait,
-	        beast.evolution.tree.RandomTree.initial,
-	        beast.evolution.tree.RandomTree.taxa,
-	        beast.evolution.tree.RandomTree.taxonset,
-	        beast.evolution.tree.RandomTree.estimate,
-	        beast.util.TreeParser.initial,
-	        beast.util.TreeParser.taxa,
-	        beast.util.TreeParser.taxonset,
-	        beast.util.TreeParser.trait,
-	        beast.util.TreeParser.estimate,
-	        beast.util.ClusterTree.initial,
-	        beast.util.ClusterTree.taxa,
-	        beast.util.ClusterTree.taxonset,
-	        beast.util.ClusterTree.trait,
-	        beast.util.ClusterTree.estimate,
-	        beast.evolution.substitutionmodel.WAG.rates,
-	        beast.evolution.substitutionmodel.WAG.frequencies,
-	        beast.evolution.substitutionmodel.JTT.rates,
-	        beast.evolution.substitutionmodel.JTT.frequencies,
-	        beast.evolution.substitutionmodel.Blosum62.rates,
-	        beast.evolution.substitutionmodel.Blosum62.frequencies,
-	        beast.evolution.substitutionmodel.Dayhoff.rates,
-	        beast.evolution.substitutionmodel.Dayhoff.frequencies,
-	        beast.evolution.substitutionmodel.CPREV.rates,
-	        beast.evolution.substitutionmodel.CPREV.frequencies,
-	        beast.evolution.substitutionmodel.MTREV.rates,
-	        beast.evolution.substitutionmodel.MTREV.frequencies,
-	        beast.evolution.substitutionmodel.GTR.rates,
-	        beast.evolution.substitutionmodel.JukesCantor.frequencies,
-            beast.math.distributions.Prior.x,
-            beast.math.distributions.MRCAPrior.tree,
-            beast.math.distributions.MRCAPrior.monophyletic,
-            beast.math.distributions.MRCAPrior.taxonset,
-            beast.evolution.branchratemodel.UCRelaxedClockModel.tree,
-            beast.evolution.branchratemodel.UCRelaxedClockModel.rateCategories,
-			beast.evolution.branchratemodel.UCRelaxedClockModel.distr,
-            beast.evolution.branchratemodel.RandomLocalClockModel.tree,
-            beast.evolution.branchratemodel.RandomLocalClockModel.meanRate,
-            beast.evolution.branchratemodel.RandomLocalClockModel.indicators,
-            beast.evolution.operators.ScaleOperator.indicator,
-	        beast.core.Operator.weight,
-            beast.core.Logger.model,
-            beast.evolution.tree.coalescent.BayesianSkyline.treeIntervals,
-            beast.evolution.tree.coalescent.BayesianSkyline.groupSizes,
-            beast.evolution.tree.coalescent.BayesianSkyline.popSizes,
-            beast.evolution.speciation.TMAYuleModel.originHeight
-            '
-        buttonLabelMap='beast.app.beauti.BeautiInitDlg.&gt;&gt; details=Edit parameters'
-    >
+                    inputLabelMap='beast.core.MCMC.operator=Operators,
+            	        beast.core.MCMC.logger=Loggers,
+            			beast.evolution.sitemodel.SiteModel.mutationRate =Substitution Rate,
+            			beast.evolution.speciation.YuleModel.birthDiffRate=Birth Rate'
+                    inlinePlugins ='beast.core.MCMC.distribution,
+                        beast.evolution.sitemodel.SiteModel.substModel,
+                        beast.evolution.tree.coalescent.ExponentialGrowth,
+                        beast.evolution.tree.coalescent.ConstantPopulation,
+                        beast.evolution.tree.coalescent.Coalescent,
+                        beast.core.State.stateNode'
+                    collapsedPlugins ='beast.core.MCMC.logger'
+                    suppressPlugins = 'beast.core.MCMC.operator,
+                		beast.core.MCMC.operatorschedule,
+                		beast.core.OperatorSchedule.subschedule,
+                		beast.core.OperatorSchedule.operatorPattern,
+            			beast.core.OperatorSchedule.operator,
+            	        beast.evolution.tree.coalescent.Coalescent.treeIntervals,
+            	        beast.evolution.tree.coalescent.Coalescent.tree,
+            	        beast.core.MCMC.state,
+            	        beast.core.MCMC.distribution,
+            	        beast.core.MCMC.init,
+            	        beast.evolution.speciation.BirthDeathGernhard08Model.treeIntervals,
+            	        beast.evolution.speciation.BirthDeathGernhard08Model.tree,
+            	        beast.evolution.speciation.BirthDeathGernhard08Model.sampleProbability,
+            			beast.evolution.speciation.YuleModel.treeIntervals,
+            			beast.evolution.speciation.YuleModel.useTipDates,
+            			beast.evolution.speciation.YuleModel.tree,
+            	        beast.evolution.tree.Tree,
+            	        beast.evolution.tree.Tree.trait,
+            	        beast.evolution.tree.Tree.taxa,
+            	        beast.evolution.tree.Tree.taxonset,
+            	        beast.evolution.tree.Tree.nodetype,
+            	        beast.evolution.tree.RandomTree.trait,
+            	        beast.evolution.tree.RandomTree.initial,
+            	        beast.evolution.tree.RandomTree.taxa,
+            	        beast.evolution.tree.RandomTree.taxonset,
+            	        beast.evolution.tree.RandomTree.estimate,
+            	        beast.evolution.tree.RandomTree.nodetype,
+            	        beast.util.TreeParser.initial,
+            	        beast.util.TreeParser.taxa,
+            	        beast.util.TreeParser.taxonset,
+            	        beast.util.TreeParser.trait,
+            	        beast.util.TreeParser.estimate,
+            	        beast.util.TreeParser.nodetype,
+            	        beast.util.ClusterTree.initial,
+            	        beast.util.ClusterTree.taxa,
+            	        beast.util.ClusterTree.taxonset,
+            	        beast.util.ClusterTree.trait,
+            	        beast.util.ClusterTree.estimate,
+            	        beast.util.ClusterTree.nodetype,
+            	        beast.util.ClusterTree.distance,
+            	        beast.evolution.substitutionmodel.WAG.rates,
+            	        beast.evolution.substitutionmodel.WAG.frequencies,
+            	        beast.evolution.substitutionmodel.JTT.rates,
+            	        beast.evolution.substitutionmodel.JTT.frequencies,
+            	        beast.evolution.substitutionmodel.Blosum62.rates,
+            	        beast.evolution.substitutionmodel.Blosum62.frequencies,
+            	        beast.evolution.substitutionmodel.Dayhoff.rates,
+            	        beast.evolution.substitutionmodel.Dayhoff.frequencies,
+            	        beast.evolution.substitutionmodel.CPREV.rates,
+            	        beast.evolution.substitutionmodel.CPREV.frequencies,
+            	        beast.evolution.substitutionmodel.MTREV.rates,
+            	        beast.evolution.substitutionmodel.MTREV.frequencies,
+            	        beast.evolution.substitutionmodel.GTR.rates,
+            	        beast.evolution.substitutionmodel.JukesCantor.frequencies,
+                        beast.math.distributions.Prior.x,
+                        beast.math.distributions.MRCAPrior.tree,
+                        beast.math.distributions.MRCAPrior.monophyletic,
+                        beast.math.distributions.MRCAPrior.taxonset,
+                        beast.evolution.branchratemodel.UCRelaxedClockModel.tree,
+                        beast.evolution.branchratemodel.UCRelaxedClockModel.rateCategories,
+            			beast.evolution.branchratemodel.UCRelaxedClockModel.distr,
+                        beast.evolution.branchratemodel.RandomLocalClockModel.tree,
+                        beast.evolution.branchratemodel.RandomLocalClockModel.meanRate,
+                        beast.evolution.branchratemodel.RandomLocalClockModel.indicators,
+                        beast.evolution.operators.ScaleOperator.indicator,
+            	        beast.core.Operator.weight,
+                        beast.core.Logger.model,
+                        beast.evolution.tree.coalescent.BayesianSkyline.treeIntervals,
+                        beast.evolution.tree.coalescent.BayesianSkyline.groupSizes,
+                        beast.evolution.tree.coalescent.BayesianSkyline.popSizes,
+                        beast.evolution.speciation.YuleModel.originHeight
+                        '
+                    buttonLabelMap='beast.app.beauti.BeautiInitDlg.&gt;&gt; details=Edit parameters'
+                >
         <!--disableMenus='Mode'-->
 
         <panel spec='BeautiPanelConfig' panelname="Partitions" tiptext="Data Partitions"
@@ -101,7 +110,6 @@
         />
 		<mergepoint id='aux-partitions-panels'/>
 
-<!--
 		<panel spec='BeautiPanelConfig' panelname="Site Model" tiptext="Site model and substitution model specifications"
             path='siteModel'
             hasPartitions="SiteModel" icon='3.png.x' forceExpansion='TRUE'
@@ -113,15 +121,14 @@
             hasPartitions="ClockModel" icon='4.png.x' forceExpansion='TRUE'
         />
 		<mergepoint id='aux-clockmodel-panels'/>
--->		
-		<!-- TODO: fix this, it doesn't show anything at the moment.
+
+		<!-- TODO: fix this, it doesn't show anything at the moment.-->
 		<panel spec='BeautiPanelConfig' panelname="Initialization" tiptext="Initial state"
             path='state/stateNode'
             hasPartitions="none" icon='6.png.x' forceExpansion='TRUE_START_COLLAPSED'
             isVisible='false'
         />
-        -->
-        
+
 		<mergepoint id='aux-initilisation-panels'/>
 
 		<panel spec='BeautiPanelConfig' panelname="Priors" tiptext="Other priors"
@@ -149,14 +156,14 @@
 
         <partitiontemplate id='FixedTreePartitionTemplate' spec='BeautiSubTemplate' class='beast.evolution.likelihood.FixedTreeLikelihood' mainid='mcmc'>
 <![CDATA[
-            <plugin spec='FixedTreeLikelihood' id="treeLikelihood.$(n)">
+            <distribution spec='FixedTreeLikelihood' id="treeLikelihood.$(n)">
                 <data idref="data"/>
                 <tree idref="Tree.t:$(n)"/>
                 <siteModel spec='FixedSiteModel' id="FixedSiteModel.s:$(n)" gammaCategoryCount='0' proportionInvariant="0.0" mutationRate="1.0" shape="1.0"/>
                 <branchRateModel spec='FixedClockModel' id='FixedClock.c:$(n)'>
                 	<clock.rate spec="parameter.RealParameter" estimate="false" value="1.0"/>
                 </branchRateModel>
-            </plugin>
+            </distribution>
 
             <taxonset id='TaxonSet.$(n)' spec='beast.evolution.alignment.TaxonSet' alignment='@$(n)' />
 
@@ -167,43 +174,68 @@
 
 
             <!-- default tree prior -->
-            <plugin spec='YuleModel' id="TMAYuleModel.t:$(n)" tree='@Tree.t:$(n)'>
-                <parameter name='birthDiffRate' id="birthRate.t:$(n)" value='1.0' estimate='true'/>
-            </plugin>
+            <prior spec='YuleModel' id="FTAYuleModel.t:$(n)" tree='@Tree.t:$(n)'>
+                <parameter name='birthDiffRate' id="FTAbirthRate.t:$(n)" value='1.0' estimate='true'/>
+            </prior>
 
-            <prior id='TMAYuleBirthRatePrior.t:$(n)' x='@birthRate.t:$(n)'><distr spec="beast.math.distributions.Uniform" lower='0' upper='Infinity'/></prior>
+            <prior id='FTAYuleBirthRatePrior.t:$(n)' x='@FTAbirthRate.t:$(n)'><distr spec="beast.math.distributions.Uniform" lower='0' upper='Infinity'/></prior>
 
-  		    <operator id='TMAYuleBirthRateScaler.t:$(n)' spec='ScaleOperator' scaleFactor="0.75" weight="3" parameter="@birthRate.t:$(n)"/>
+  		    <operator id='FTAYuleBirthRateScaler.t:$(n)' spec='ScaleOperator' scaleFactor="0.75" weight="3" parameter="@FTAbirthRate.t:$(n)"/>
 ]]>
             <connect srcID='treeLikelihood.$(n)'            targetID='likelihood' inputName='distribution' if="isInitializing"/>
-            <connect srcID='TMAYuleModel.t:$(n)'               targetID='prior' inputName='distribution' if="isInitializing"/>
+            <connect srcID='FTAYuleModel.t:$(n)'               targetID='prior' inputName='distribution' if="isInitializing"/>
 			<connect method="beast.app.beauti.SiteModelInputEditor.customConnector"/>
 
             <connect srcID='treelog.t:$(n)'                 targetID='mcmc' inputName='logger' if='inposterior(Tree.t:$(n))'/>
 
-            <connect srcID='birthRate.t:$(n)'                 targetID='state' inputName='stateNode' if='inposterior(TMAYuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and birthRate.t:$(n)/estimate=true'/>
+            <connect srcID='FTAbirthRate.t:$(n)'                 targetID='state' inputName='stateNode' if='inposterior(FTAYuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'/>
 
-            <connect srcID='TMAYuleBirthRateScaler.t:$(n)'       targetID='mcmc' inputName='operator' if='inposterior(birthRate.t:$(n)) and birthRate.t:$(n)/estimate=true'>Scales birth rate of TMAYule prior for partition t:$(n)</connect>
+            <connect srcID='FTAYuleBirthRateScaler.t:$(n)'       targetID='mcmc' inputName='operator' if='inposterior(FTAbirthRate.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'>Scales birth rate of TMAYule prior for partition t:$(n)</connect>
 
-            <connect srcID='birthRate.t:$(n)'                 targetID='tracelog' inputName='log' if='inposterior(TMAYuleModel.t:$(n)) and birthRate.t:$(n)/estimate=true'/>
-            <connect srcID='TMAYuleBirthRatePrior.t:$(n)'        targetID='prior' inputName='distribution' if='inposterior(TMAYuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and birthRate.t:$(n)/estimate=true'>Prior on TMAYule birth rate for partition s:$(n)</connect>
+            <connect srcID='FTAbirthRate.t:$(n)'                 targetID='tracelog' inputName='log' if='inposterior(FTAYuleModel.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'/>
+            <connect srcID='FTAYuleBirthRatePrior.t:$(n)'        targetID='prior' inputName='distribution' if='inposterior(FTAYuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'>Prior on TMAYule birth rate for partition s:$(n)</connect>
 
 			<mergepoint id='aux-partitiontemplate'/>
         </partitiontemplate>
 
-		
+
 
 		<mergepoint id='substModelTemplates'/>
 		<mergepoint id='clockModelTemplates'/>
-		<mergepoint id='treePriorTemplatesX'/>
+		<mergepoint id='treePriorTemplates'/>
         <mergepoint id='parametricDistributions'/>
+
+        <subtemplate id='FixedTreeYuleModel' class='beast.evolution.speciation.YuleModel' mainid='FTAYuleModel.t:$(n)'>
+              <![CDATA[
+              <prior spec='YuleModel' id="FTAYuleModel.t:$(n)" tree='@Tree.t:$(n)'>
+                  <parameter name='birthDiffRate' id="FTAbirthRate.t:$(n)" value='1.0' estimate='true'/>
+              </prior>
+
+              <prior id='FTAYuleBirthRatePrior.t:$(n)' x='@FTAbirthRate.t:$(n)'><distr spec="beast.math.distributions.Uniform" lower='0' upper='Infinity'/></prior>
+
+              <operator id='FTAYuleBirthRateScaler.t:$(n)' spec='ScaleOperator' scaleFactor="0.75" weight="3" parameter="@FTAbirthRate.t:$(n)"/>
+              ]]>
+              <connect srcID='FTAbirthRate.t:$(n)'                 targetID='state' inputName='stateNode' if='inposterior(FTAYuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'/>
+
+              <connect srcID='FTAYuleBirthRateScaler.t:$(n)'       targetID='mcmc' inputName='operator' if='inposterior(FTAbirthRate.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'>Scales birth rate of TMAYule prior for partition t:$(n)</connect>
+
+              <connect srcID='FTAbirthRate.t:$(n)'                 targetID='tracelog' inputName='log' if='inposterior(FTAYuleModel.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'/>
+              <connect srcID='FTAYuleBirthRatePrior.t:$(n)'        targetID='prior' inputName='distribution' if='inposterior(FTAYuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'>Prior on TMAYule birth rate for partition s:$(n)</connect>
+        </subtemplate>
+
+        <subtemplate id='DefaultOperatorSchedule' class='beast.core.OperatorSchedule' mainid='OperatorSchedule'>
+        <![CDATA[
+                <operatorschedule id="OperatorSchedule" spec="beast.core.OperatorSchedule"/>
+        ]]>
+        </subtemplate>
 
     </beauticonfig>
 
 
 	<mergepoint id='misc'/>
 
-    
+
+
 <!--
 <operator spec='DeltaExchangeOperator' id='FixMeanRatesOperator' weight='2' delta='0.75'/>
 -->
@@ -211,6 +243,7 @@
 <!-- framework for main model -->
 
     <run spec="MCMC" id="mcmc" chainLength="10000000">
+        <operatorschedule id="OperatorSchedule" spec="OperatorSchedule"/>
 
         <state storeEvery='5000' id='state'>
         </state>
@@ -241,4 +274,3 @@
     </run>
 
 </beast>
-

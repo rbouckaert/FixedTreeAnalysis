@@ -13,6 +13,7 @@ import beast.core.State;
 import beast.evolution.alignment.Alignment;
 import beast.evolution.alignment.Sequence;
 import beast.evolution.likelihood.FixedTreeLikelihood;
+import beast.evolution.tree.FixedTree;
 import beast.evolution.tree.Tree;
 import beast.util.NexusParser;
 import beast.util.TreeParser;
@@ -60,12 +61,12 @@ public class BeautiFixedTreeAlignmentProvider extends BeautiAlignmentProvider {
     	}
     	data.setID(id);
 
-    	TreeParser treeParser = new TreeParser();
+    	FixedTree treeParser = new FixedTree();
     	treeParser.initByName("newick", tree.getRoot().toNewick(),
     			"IsLabelledNewick", true,
     			"taxa", data,
     			"adjustTipHeights", false,
-    			"estimate", false
+    			"estimate", true
     			);
     	treeParser.setID("Tree.t:" + id);
     	doc.registerPlugin(treeParser);
