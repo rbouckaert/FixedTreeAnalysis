@@ -1,7 +1,11 @@
 package beast.evolution.tree;
 
+import java.util.TreeMap;
+
+import beast.core.Description;
 import beast.evolution.tree.FixedTree.mode;
 
+@Description("Node in a fixed tree: it will not allow editing once initialised")
 public class FixedNode extends Node {
 
 	private FixedTree.mode getMode() {
@@ -102,4 +106,22 @@ public class FixedNode extends Node {
     	}
     }
 	
+	@Override
+    public Node copy() {
+        final Node node = new FixedNode();
+        node.height = height;
+        node.labelNr = labelNr;
+        node.metaDataString = metaDataString;
+        node.lengthMetaDataString = lengthMetaDataString;
+        node.metaData = new TreeMap<>(metaData);
+        node.lengthMetaData = new TreeMap<>(lengthMetaData);
+        node.parent = null;
+        node.setID(getID());
+
+        for (final Node child : getChildren()) {
+            node.addChild(child.copy());
+        }
+        return node;
+    } // copy
+
 }

@@ -29,7 +29,8 @@ public class FixedClockModelInputEditor extends InputEditor.Base {
         this.itemNr= itemNr;
         
         m_bAddButtons = true;
-        addInputLabel("Fixed tree model. Do not change.", "<html>Fixed tree model.<br>Do not change.</html>");
+        addInputLabel("Fixed tree model partition --", "<html>Fixed tree model.<br>There are no parameters to change.</html>");
+        addInputLabel("No parameter to change", "<html>Fixed tree model.<br>There are no parameters to change.</html>");
         
         m_bAddButtons = addButtons;
 

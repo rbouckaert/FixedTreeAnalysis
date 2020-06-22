@@ -97,7 +97,9 @@
                         beast.evolution.tree.coalescent.BayesianSkyline.treeIntervals,
                         beast.evolution.tree.coalescent.BayesianSkyline.groupSizes,
                         beast.evolution.tree.coalescent.BayesianSkyline.popSizes,
-                        beast.evolution.speciation.YuleModel.originHeight
+                        beast.evolution.speciation.YuleModel.originHeight,
+                        beast.evolution.tree.FixedTreeDistribution.tree,
+                        beast.evolution.tree.FixedTreeDistribution.treeIntervals
                         '
                     buttonLabelMap='beast.app.beauti.BeautiInitDlg.&gt;&gt; details=Edit parameters'
                 >
@@ -167,34 +169,26 @@
 
             <taxonset id='TaxonSet.$(n)' spec='beast.evolution.alignment.TaxonSet' alignment='@$(n)' />
 
-            <logger id='treelog.t:$(n)' spec='beast.core.Logger' logEvery="1000" fileName="$(tree).trees" mode='tree'>
+            <logger id='treelog.t:$(n)' spec='beast.core.Logger' logEvery="1000" fileName="$(filebase).trees" mode='tree'>
                     <log id='TreeWithMetaDataLogger.t:$(n)' spec='beast.evolution.tree.TreeWithMetaDataLogger' tree='@Tree.t:$(n)'>
                     </log>
             </logger>
 
 
             <!-- default tree prior -->
-            <prior spec='YuleModel' id="FTAYuleModel.t:$(n)" tree='@Tree.t:$(n)'>
-                <parameter name='birthDiffRate' id="FTAbirthRate.t:$(n)" value='1.0' estimate='true'/>
+            <prior spec='beast.evolution.tree.FixedTreeDistribution' id="FTAYuleModel.t:$(n)" tree='@Tree.t:$(n)'>
+            <!--
+                <parameter name='birthDiffRate' id="FTAbirthRate.t:$(n)" value='1.0' estimate='false'/>
+            -->
             </prior>
-
-            <prior id='FTAYuleBirthRatePrior.t:$(n)' x='@FTAbirthRate.t:$(n)'><distr spec="beast.math.distributions.Uniform" lower='0' upper='Infinity'/></prior>
-
-  		    <operator id='FTAYuleBirthRateScaler.t:$(n)' spec='ScaleOperator' scaleFactor="0.75" weight="3" parameter="@FTAbirthRate.t:$(n)"/>
 ]]>
             <connect srcID='treeLikelihood.$(n)'            targetID='likelihood' inputName='distribution' if="isInitializing"/>
             <connect srcID='FTAYuleModel.t:$(n)'               targetID='prior' inputName='distribution' if="isInitializing"/>
 			<connect method="beast.app.beauti.SiteModelInputEditor.customConnector"/>
 
+<!--
             <connect srcID='treelog.t:$(n)'                 targetID='mcmc' inputName='logger' if='inposterior(Tree.t:$(n))'/>
-
-            <connect srcID='FTAbirthRate.t:$(n)'                 targetID='state' inputName='stateNode' if='inposterior(FTAYuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'/>
-
-            <connect srcID='FTAYuleBirthRateScaler.t:$(n)'       targetID='mcmc' inputName='operator' if='inposterior(FTAbirthRate.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'>Scales birth rate of TMAYule prior for partition t:$(n)</connect>
-
-            <connect srcID='FTAbirthRate.t:$(n)'                 targetID='tracelog' inputName='log' if='inposterior(FTAYuleModel.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'/>
-            <connect srcID='FTAYuleBirthRatePrior.t:$(n)'        targetID='prior' inputName='distribution' if='inposterior(FTAYuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'>Prior on TMAYule birth rate for partition s:$(n)</connect>
-
+-->
 			<mergepoint id='aux-partitiontemplate'/>
         </partitiontemplate>
 
@@ -205,22 +199,14 @@
 		<mergepoint id='treePriorTemplates'/>
         <mergepoint id='parametricDistributions'/>
 
-        <subtemplate id='FixedTreeYuleModel' class='beast.evolution.speciation.YuleModel' mainid='FTAYuleModel.t:$(n)'>
+        <subtemplate id='FixedTreeModel' class='beast.evolution.speciation.YuleModel' mainid='FTAYuleModel.t:$(n)'>
               <![CDATA[
-              <prior spec='YuleModel' id="FTAYuleModel.t:$(n)" tree='@Tree.t:$(n)'>
-                  <parameter name='birthDiffRate' id="FTAbirthRate.t:$(n)" value='1.0' estimate='true'/>
+              <prior spec='beast.evolution.tree.FixedTreeDistribution' id="FTAYuleModel.t:$(n)" tree='@Tree.t:$(n)'>
+              <!--
+                  <parameter name='birthDiffRate' id="FTAbirthRate.t:$(n)" value='1.0' estimate='false'/>
+                  -->
               </prior>
-
-              <prior id='FTAYuleBirthRatePrior.t:$(n)' x='@FTAbirthRate.t:$(n)'><distr spec="beast.math.distributions.Uniform" lower='0' upper='Infinity'/></prior>
-
-              <operator id='FTAYuleBirthRateScaler.t:$(n)' spec='ScaleOperator' scaleFactor="0.75" weight="3" parameter="@FTAbirthRate.t:$(n)"/>
               ]]>
-              <connect srcID='FTAbirthRate.t:$(n)'                 targetID='state' inputName='stateNode' if='inposterior(FTAYuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'/>
-
-              <connect srcID='FTAYuleBirthRateScaler.t:$(n)'       targetID='mcmc' inputName='operator' if='inposterior(FTAbirthRate.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'>Scales birth rate of TMAYule prior for partition t:$(n)</connect>
-
-              <connect srcID='FTAbirthRate.t:$(n)'                 targetID='tracelog' inputName='log' if='inposterior(FTAYuleModel.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'/>
-              <connect srcID='FTAYuleBirthRatePrior.t:$(n)'        targetID='prior' inputName='distribution' if='inposterior(FTAYuleModel.t:$(n)) and inposterior(Tree.t:$(n)) and FTAbirthRate.t:$(n)/estimate=true'>Prior on TMAYule birth rate for partition s:$(n)</connect>
         </subtemplate>
 
         <subtemplate id='DefaultOperatorSchedule' class='beast.core.OperatorSchedule' mainid='OperatorSchedule'>
@@ -234,11 +220,6 @@
 
 	<mergepoint id='misc'/>
 
-
-
-<!--
-<operator spec='DeltaExchangeOperator' id='FixMeanRatesOperator' weight='2' delta='0.75'/>
--->
 
 <!-- framework for main model -->
 
@@ -257,7 +238,7 @@
             </distribution>
         </distribution>
 
-        <logger id='tracelog' logEvery="1000" fileName="beast.log" sort="smart" sanitiseHeaders='true'>
+        <logger id='tracelog' logEvery="1000" fileName="$(filebase).log" sort="smart" sanitiseHeaders='true'>
 	        <model idref='posterior'/>
             <log idref="posterior"/>
             <log idref="likelihood"/>
@@ -265,7 +246,6 @@
         </logger>
 
         <logger id='screenlog' logEvery="1000">
-	        <!--model idref='posterior'/-->
             <log idref="posterior"/>
       	    <ESS spec='ESS' name='log' arg="@posterior"/>
             <log idref="likelihood"/>
