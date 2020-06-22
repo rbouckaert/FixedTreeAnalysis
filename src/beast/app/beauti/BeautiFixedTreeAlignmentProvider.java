@@ -19,7 +19,7 @@ import beast.util.NexusParser;
 import beast.util.TreeParser;
 
 @Description("Alignment provider for a fixed tree analysis")
-public class BeautiFixedTreeAlignmentProvider extends BeautiAlignmentProvider {
+public class BeautiFixedTreeAlignmentProvider extends BeautiFixedAlignmentProvider {
 
 	@Override
 	public List<BEASTInterface> getAlignments(BeautiDoc doc) {
@@ -68,7 +68,7 @@ public class BeautiFixedTreeAlignmentProvider extends BeautiAlignmentProvider {
     			"adjustTipHeights", false,
     			"estimate", true
     			);
-    	treeParser.setID("Tree.t:" + id);
+    	treeParser.setID("Tree.t:tree");
     	doc.registerPlugin(treeParser);
     	
     	// park the tree in the state
