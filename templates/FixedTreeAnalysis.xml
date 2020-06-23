@@ -161,7 +161,9 @@
             <distribution spec='FixedTreeLikelihood' id="treeLikelihood.$(n)">
                 <data idref="data"/>
                 <tree idref="Tree.t:tree"/>
-                <siteModel spec='FixedSiteModel' id="FixedSiteModel.s:$(n)" gammaCategoryCount='0' proportionInvariant="0.0" mutationRate="1.0" shape="1.0"/>
+                <siteModel spec='FixedSiteModel' id="FixedSiteModel.s:$(n)" gammaCategoryCount='0' proportionInvariant="0.0" shape="1.0">
+                <mutationRate spec="parameter.RealParameter" lower="0.0" upper="1.0" estimate="false">1.0</mutationRate>
+                </siteModel>
                 <branchRateModel spec='FixedClockModel' id='FixedClock.c:$(n)'>
                 	<clock.rate spec="parameter.RealParameter" estimate="false" value="1.0"/>
                 </branchRateModel>
