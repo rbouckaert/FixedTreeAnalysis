@@ -80,11 +80,15 @@ In the partition panel, a new partition will be added with the name H5N1. The si
 
 > Select the `File => Add Discrete Trait` menu.
 
+<figure>
 	<img style="width:45%;" src="figures/BEAUti-discrete-trait.png" alt="">
+</figure>
 
 A dialog is shown to set up the name. Choose `geo`. There is only a single tree in the system, so no need to change it. When adding other kinds of partitions, it may be necessary to select the fixed tree, or after adding the partition, to select all partitions and use the `Link Trees` button.
 
+<figure>
 	<img style="width:45%;" src="figures/BEAUti-create-trait.png" alt="">
+</figure>
 
 Next, a dialog is shown where you can set up the trait. Since there are quite a few taxa, we will just load them from the `H5N1locations.dat` file in the data directory.
 
