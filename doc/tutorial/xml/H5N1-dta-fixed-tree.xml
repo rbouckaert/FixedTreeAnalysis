@@ -238,6 +238,18 @@ name="taxa">
     <distribution id="posterior" spec="util.CompoundDistribution">
         <distribution id="prior" spec="util.CompoundDistribution">
             <distribution id="FixedTreeModel.t:tree" spec="beast.evolution.tree.FixedTreeDistribution" tree="@Tree.t:tree"/>
+            <prior id="geoclockPrior.c:geo" name="distribution" x="@traitClockRate.c:geo">
+                <Gamma id="Gamma.2" name="distr">
+                    <parameter id="RealParameter.10" spec="parameter.RealParameter" estimate="false" name="alpha">0.001</parameter>
+                    <parameter id="RealParameter.11" spec="parameter.RealParameter" estimate="false" name="beta">1000.0</parameter>
+                </Gamma>
+            </prior>
+            <prior id="relativeGeoRatesPrior.s:geo" name="distribution" x="@relativeGeoRates.s:geo">
+                <Gamma id="Gamma.3" name="distr">
+                    <parameter id="RealParameter.12" spec="parameter.RealParameter" estimate="false" name="alpha">1.0</parameter>
+                    <parameter id="RealParameter.13" spec="parameter.RealParameter" estimate="false" name="beta">1.0</parameter>
+                </Gamma>
+            </prior>
             <prior id="nonZeroRatePrior.s:geo" name="distribution">
                 <x id="nonZeroRates.s:geo" spec="util.Sum">
                     <arg idref="rateIndicator.s:geo"/>
@@ -246,23 +258,11 @@ name="taxa">
                     <parameter id="RealParameter.14" spec="parameter.RealParameter" estimate="false" name="lambda">0.693</parameter>
                 </distr>
             </prior>
-            <prior id="relativeGeoRatesPrior.s:geo" name="distribution" x="@relativeGeoRates.s:geo">
-                <Gamma id="Gamma.3" name="distr">
-                    <parameter id="RealParameter.12" spec="parameter.RealParameter" estimate="false" name="alpha">1.0</parameter>
-                    <parameter id="RealParameter.13" spec="parameter.RealParameter" estimate="false" name="beta">1.0</parameter>
-                </Gamma>
-            </prior>
-            <prior id="geoclockPrior.c:geo" name="distribution" x="@traitClockRate.c:geo">
-                <Gamma id="Gamma.2" name="distr">
-                    <parameter id="RealParameter.10" spec="parameter.RealParameter" estimate="false" name="alpha">0.001</parameter>
-                    <parameter id="RealParameter.11" spec="parameter.RealParameter" estimate="false" name="beta">1000.0</parameter>
-                </Gamma>
-            </prior>
         </distribution>
         <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
             <distribution id="treeLikelihood.H5N1" spec="FixedTreeLikelihood" data="@H5N1" tree="@Tree.t:tree">
                 <siteModel id="FixedSiteModel.s:H5N1" spec="FixedSiteModel">
-                    <parameter id="RealParameter.0" spec="parameter.RealParameter" lower="0.0" name="mutationRate" upper="0.0">1.0</parameter>
+                    <parameter id="RealParameter.0" spec="parameter.RealParameter" estimate="false" lower="0.0" name="mutationRate" upper="1.0">1.0</parameter>
                     <parameter id="RealParameter.1" spec="parameter.RealParameter" lower="0.0" name="shape" upper="0.0">1.0</parameter>
                     <parameter id="RealParameter.2" spec="parameter.RealParameter" lower="0.0" name="proportionInvariant" upper="0.0">0.0</parameter>
                 </siteModel>
@@ -408,7 +408,7 @@ A_treesparrow_Henan_4_2004=Henan</traitSet>
         <log id="geoSubstModelLogger.s:geo" spec="SVSGeneralSubstitutionModelLogger" dataType="@traitDataType.geo" model="@svs.s:geo"/>
     </logger>
 
-    <logger id="screenlog" spec="Logger" logEvery="100000">
+    <logger id="screenlog" spec="Logger" logEvery="1000">
         <log idref="posterior"/>
         <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
         <log idref="likelihood"/>

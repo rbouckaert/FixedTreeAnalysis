@@ -97,7 +97,8 @@ Next, a dialog is shown where you can set up the trait. Since there are quite a 
 <figure>
 	<a id="fig:BEAUti3"></a>
 	<img style="width:45%;" src="figures/BEAUti-dta-set-locations.png" alt="">
-	<img style="width:45%;" src="figures/BEAUti-partitions2.png" alt="">
+	<img style="width:45%;" src="figures/BEAUti-dta-set-locations2.png" alt="">
+	<img style="width:45%;" src="figures/BEAUti-partition2.png" alt="">
 	<figcaption>Figure 3: Set up DTA locations.</figcaption>
 </figure>
 
@@ -108,6 +109,7 @@ Since the analysis will converge quite quickly, we do not need the default 10 mi
 
 > * In the MCMC panel, set the chainLength to 1 million samples.
 > * Change to log frequency of the `treeWithTraitLog` to 1000.
+> * Optionally, you might want to reduce the log frequency of the screen logger to 100000.
 > * Safe the file to `H5N1-dta-fixed-tree.xml`
 
 <figure>
