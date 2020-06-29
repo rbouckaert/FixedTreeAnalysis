@@ -13,13 +13,12 @@ import beast.core.State;
 import beast.core.parameter.IntegerParameter;
 import beast.evolution.alignment.Alignment;
 import beast.evolution.alignment.Sequence;
+import beast.evolution.alignment.Taxon;
 import beast.evolution.alignment.TaxonSet;
 import beast.evolution.likelihood.FixedTreeLikelihood;
-import beast.evolution.tree.FixedTree;
 import beast.evolution.tree.IndexedTreeFromSet;
 import beast.evolution.tree.Tree;
 import beast.util.NexusParser;
-import beast.util.TreeParser;
 
 @Description("Alignment provider for a tree set analysis")
 public class BeautiTreeSetAlignmentProvider extends BeautiFixedAlignmentProvider {
@@ -68,7 +67,11 @@ public class BeautiTreeSetAlignmentProvider extends BeautiFixedAlignmentProvider
     	((IntegerParameter) index).setUpper(treeSetSize);
     	TaxonSet taxonset = new TaxonSet();
     	taxonset.setID("taxonset." + id);
-    	taxonset.initByName("alignment", data);
+    	for (String name : tree.getTaxaNames()) {
+    		taxonset.taxonsetInput.get().add(new Taxon(name));
+    	}
+    	//taxonset.initByName("alignment", data);
+    	taxonset.initAndValidate();
     	
     	IndexedTreeFromSet treeSet = new IndexedTreeFromSet();
     	treeSet.initByName("treeSetFile", file.getPath(),

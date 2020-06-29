@@ -7,11 +7,10 @@ import beast.core.util.Log;
 import beast.util.TreeParser;
 
 @Description("Tree that operator proposals leave unchanged")
-public class FixedTree extends TreeParser {
-	enum mode {initial,fixed}
+public class FixedTree extends TreeParser implements ModedTree {
 
 	mode _mode = mode.initial;
-	
+	public mode getMode() {return _mode;}
 	
 	@Override
 	public void initAndValidate() {

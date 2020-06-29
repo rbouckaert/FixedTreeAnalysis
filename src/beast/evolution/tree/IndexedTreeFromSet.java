@@ -7,20 +7,21 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import beast.core.BEASTInterface;
 import beast.core.Description;
 import beast.core.Input;
+import beast.core.Operator;
 import beast.core.Input.Validate;
 import beast.core.parameter.IntegerParameter;
 import beast.core.util.Log;
 import beast.evolution.alignment.TaxonSet;
 import beast.evolution.tree.Node;
 import beast.evolution.tree.Tree;
-import beast.evolution.tree.FixedTree.mode;
 import beast.util.NexusParser;
 
 @Description("Tree that is selected from a tree set loaded from file")
-public class IndexedTreeFromSet extends Tree {
-	final public Input<File> treeSetFileInput = new Input<>("treeSetFile", "file containing a tree set in Nexus format", Validate.REQUIRED);
+public class IndexedTreeFromSet extends Tree implements ModedTree {
+	final public Input<String> treeSetFileInput = new Input<>("treeSetFile", "file containing a tree set in Nexus format", Validate.REQUIRED);
 	final public Input<Integer> burninInput = new Input<>("burnin", "percentage of the log file to disregard as burn-in (default 10)" , 10);
 	
 	public Input<IntegerParameter> indexInput = new Input<>("index", "index parameter that points to a single tree in the tree set."
@@ -28,19 +29,20 @@ public class IndexedTreeFromSet extends Tree {
 
 	List<Tree> trees;
 	mode _mode = mode.initial;
+	public mode getMode() {return _mode;}
 
 	@Override
 	public void initAndValidate() {
 			// get trees from file
 			NexusParser parser = new NexusParser();
 			try {
-				parser.parseFile(treeSetFileInput.get());
+				parser.parseFile(new File(treeSetFileInput.get()));
 			} catch (IOException e) {
 				throw new RuntimeException(e.getMessage());
 			}
 			trees = parser.trees;
 			if (trees == null || trees.size() == 0) {
-				throw new IllegalArgumentException("Could not find any trees in nexus file " + treeSetFileInput.get().getName());			
+				throw new IllegalArgumentException("Could not find any trees in nexus file " + treeSetFileInput.get());			
 			}
 			
 			// remove burn-in portion of trees
@@ -87,6 +89,8 @@ public class IndexedTreeFromSet extends Tree {
 				trees = filteredTrees;
 			}
 			
+			
+			indexInput.get().setBounds(0, trees.size()-1);
 
 			// relabel tips in tree set to match those in tree
 			for (Tree tree : trees) {
@@ -97,6 +101,14 @@ public class IndexedTreeFromSet extends Tree {
 			nodeCount = trees.get(0).getRoot().getNodeCount();
 			super.initAndValidate();
 
+			
+			_mode = mode.fixed;
+			
+			for (BEASTInterface o : getOutputs()) {
+				if (o instanceof Operator && ((Operator)o).getWeight() > 0) {
+					Log.warning("WARNING: tree operator " + o.getID() + " has no effect on fixed tree -- consider removing (or setting weight to 0)");
+				}
+			}
 	}
 	
 	@Override
