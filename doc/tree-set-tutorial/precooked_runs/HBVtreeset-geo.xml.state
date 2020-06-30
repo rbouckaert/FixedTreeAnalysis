@@ -1,0 +1,18 @@
+<itsabeastystatewerein version='2.0' sample='1000000'>
+<statenode id='treeIndex.t:tree'>treeIndex.t:tree[1 1] (0,900): 870 </statenode>
+<statenode id='null'>(((((0:493.6199937645897,12:508.6199937645897)17:125.14652723925929,6:631.7665210038485)18:705.4396336616123,(2:992.9314390965737,(3:704.7154777723872,4:707.7154777723872)19:289.21596132418654)20:341.27471556888713)21:1278.445174693717,((1:761.255606408809,9:778.255606408809)22:418.3022727307175,5:1198.5578791395264)23:1420.0934502196524)24:1095.0138795627554,((((7:829.4378758001831,11:832.4378758001831)25:62.86947174781153,13:896.307347547995)26:166.9080885952376,(10:302.42188670627047,16:312.42188670627047)27:746.7935494369622)28:1266.0622020392261,(8:600.4165510051644,(14:278.39236358594735,15:263.39236358594735)29:320.024187419217)30:1724.8610871772948)31:1384.387570739475)32:0.0</statenode>
+<statenode id='ucldMean.c:geo'>ucldMean.c:geo[1 1] (-Infinity,Infinity): 0.010861500329556654 </statenode>
+<statenode id='ucldStdev.c:geo'>ucldStdev.c:geo[1 1] (0.0,2.0): 1.8285372647058442 </statenode>
+<statenode id='rateCategories.c:geo'>rateCategories.c:geo[32 1] (0,31): 22 11 8 11 7 19 1 28 31 7 27 2 1 13 27 24 30 30 20 12 1 3 4 19 3 0 16 10 29 3 7 30 </statenode>
+</itsabeastystatewerein>
+<!--
+{"operators":[
+{"id":"treeIndexUniform","p":"NaN","accept":74863,"reject":0,"acceptFC":70610,"rejectFC":0,"rejectIv":0,"rejectOp":0},
+{"id":"ucldMeanScaler.c:geo","p":0.3765997606973823,"accept":6496,"reject":18510,"acceptFC":5951,"rejectFC":17606,"rejectIv":0,"rejectOp":0},
+{"id":"ucldStdevScaler.c:geo","p":0.11627103572510558,"accept":1956,"reject":73691,"acceptFC":1525,"rejectFC":69851,"rejectIv":63357,"rejectOp":63357},
+{"id":"CategoriesRandomWalk.c:geo","p":"NaN","accept":143679,"reject":106583,"acceptFC":135406,"rejectFC":100461,"rejectIv":92698,"rejectOp":92698},
+{"id":"CategoriesSwapOperator.c:geo","p":"NaN","accept":109870,"reject":139736,"acceptFC":103538,"rejectFC":131851,"rejectIv":0,"rejectOp":0},
+{"id":"CategoriesUniform.c:geo","p":"NaN","accept":130136,"reject":119673,"acceptFC":122634,"rejectFC":112919,"rejectIv":0,"rejectOp":0},
+{"id":"relaxedUpDownOperator.c:geo","p":0.3968330644059964,"accept":22175,"reject":52633,"acceptFC":19267,"rejectFC":51261,"rejectIv":0,"rejectOp":0}
+]}
+-->
