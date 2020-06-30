@@ -222,6 +222,7 @@
 		</copy>
 		<copy todir="${Add_on_dir}/templates">
 			<fileset file="templates/FixedTreeAnalysis.xml" />
+			<fileset file="templates/TreeSetAnalysis.xml" />
 		</copy>
 		<jar jarfile="${distlabs}/FixedTreeAnalysis.addon.v${version}.zip">
 			<fileset dir="${Add_on_dir}">

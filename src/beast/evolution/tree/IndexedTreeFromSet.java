@@ -185,12 +185,15 @@ public class IndexedTreeFromSet extends Tree implements ModedTree {
 	
 	@Override
 	public void restore() {
-		this.assignFrom(trees.get(indexInput.get().getValue()));
+		// this should never be necessary
+		// this.assignFrom(trees.get(indexInput.get().getValue()));
 	}
 	
 	@Override
 	protected boolean requiresRecalculation() {
-		this.assignFrom(trees.get(indexInput.get().getValue()));
+		this.assignFrom(trees.get(indexInput.get().getValue()));		
+		getRoot().makeAllDirty(IS_FILTHY);
+		hasStartedEditing = true;
 		return super.requiresRecalculation();
 	}
 	
