@@ -72,8 +72,7 @@ A dialog is shown where you can select a file containing a tree set in NEXUS for
 <figure>
 	<a id="fig:BEAUti2"></a>
 	<img style="width:45%;" src="figures/BEAUti-addtreeset.png" alt="">
-	<img style="width:45%;" src="figures/BEAUti-partitions1.png" alt="">
-
+	<img style="width:45%;" src="figures/BEAUti-partition1.png" alt="">
 	<img style="width:30%;" src="figures/BEAUti-sitemodel.png" alt="">
 	<img style="width:30%;" src="figures/BEAUti-clockmodel.png" alt="">
 	<img style="width:30%;" src="figures/BEAUti-prior.png" alt="">
@@ -112,7 +111,6 @@ Next, a dialog is shown where you can set up the trait. Since there are quite a 
 	<img style="width:30%;" src="figures/BEAUti-setlatitude.png" alt="">
 	<img style="width:30%;" src="figures/BEAUti-setlongitude.png" alt="">
 	<img style="width:30%;" src="figures/BEAUti-locations.png" alt="">
-
 	<img style="width:70%;" src="figures/BEAUti-partition2.png" alt="">
 	<figcaption>Figure 3: Set up locations. A new partition will be added.</figcaption>
 </figure>
@@ -132,7 +130,7 @@ A second partition should now have been added to the partitions panel. If necess
 
 Since the analysis will converge quite quickly, we do not need the default 10 million samples.
 
-> * In the MCMC panel, set the chainLength to 1 million samples.
+> * In the MCMC panel, set the chainLength to 1Figure 2 million samples.
 > * Optionally, you might want to reduce the log frequency of the screen logger to 100000.
 > * Safe the file to `HBVtreeset-geo.xml`
 
@@ -177,7 +175,7 @@ or you can start it from BEAUti:
 > * Select the HeatMapMaker tool from the dialog that pops up.
 > * Select the launch button. A dialog pops up showing all the options that HeatMapMaker provides.
 > * Fill in entries as appropriate:
->     * use the `browse` button to set tree to `HBVtreeset-geo.trees`,
+>     * use the `browse` button to set tree to Figure 2`HBVtreeset-geo.trees`,
 >     * use `browse` button to set background to `World98.png`,
 >     * enter `locationsgeo` to tag,
 >     * set bounding box to `-30,-30,70,160`,
@@ -190,7 +188,7 @@ or you can start it from BEAUti:
 	<img style="width:65%;" src="figures/heatmap.png" alt="">
 	<img style="width:65%;" src="figures/heatmap-joint.png" alt="">
 	<figcaption>Figure 7: Heat map of the  locations in the HBV geography reconstruction.
-	Tree set based first, joint geography/sequence heatmap next.</figcaption>
+	Tree set based first, joint geography/sequeFigure 2nce heatmap next.</figcaption>
 </figure>
 
 When we compare the reconstruction of the joint geography with sequence analysis with the tree set analysis, there is hardly any difference between them, other than can be expected due to the stochastic nature of the MCMC algorithm.
@@ -200,7 +198,7 @@ In this case, when looking at the tree set in DensiTree, it shows that the topol
 Be aware that if there is less signal in the data that produced the tree set, or if the partition added to the tree set analysis has very informative data, it is recommended to perform the joint analysis if possible.
 
 ----
-
+Figure 2
 # Useful Links
 
 - BEAST 2 website and documentation: [http://www.beast2.org/](http://www.beast2.org/)
