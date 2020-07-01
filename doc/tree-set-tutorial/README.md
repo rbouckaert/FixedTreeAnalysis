@@ -15,7 +15,7 @@ It can be useful to run a post-hoc analysis where a tree posterior is available 
 * when estimating epidemiological parameters and using a computationally intensive tree prior, like compartimentalised models such as MASCOT.
 * when you are interested in the ancestral reconstruction of internal nodes (e.g. a discrete trait analysis (DTA)) on a large tree, and another post-hoc DTA can be done quickly afterwards.
 
-Be aware that using a tree posterior instead of using a joint analysis has the potential to result in biased estimates of the parameters of interest. Let the tree set be 
+Be aware that using a tree posterior instead of using a joint analysis has the potential to result in biased estimates of the parameters of interest. Let the tree set be
 
 In this tutorial, we will look at a phylogeographical reconstruction {% cite  bouckaert2015phylogeography --file master-refs.bib %} of influenze HBV through Africa and Asia.
 
@@ -58,68 +58,88 @@ BEAUti should change to show it uses the Tree Set Analysis template.
 
 <figure>
 	<a id="fig:BEAUti1"></a>
-	<img style="width:45%;" src="figures/BEAUti-fixed-tree.png" alt="">
+	<img style="width:45%;" src="figures/BEAUti-treesettemplate.png" alt="">
 	<img style="width:45%;" src="figures/BEAUti-partition0.png" alt="">
 	<figcaption>Figure 1: Select the Tree Set Analysis template, and BEAUti changes its appearance.</figcaption>
 </figure>
 
 
 > Next, select the `File => Add Tree Set` menu.
-A dialog is shown where you can select a file containing a tree in NEXUS format.
+A dialog is shown where you can select a file containing a tree set in NEXUS format.
 
-> Select the file `H5N1.tree` that comes with this tutorial in the data section.
+> Select the file `HBVnogeo.trees` that comes with this tutorial in the data section.
 
 <figure>
 	<a id="fig:BEAUti2"></a>
-	<img style="width:45%;" src="figures/BEAUti-import.png" alt="">
+	<img style="width:45%;" src="figures/BEAUti-addtreeset.png" alt="">
 	<img style="width:45%;" src="figures/BEAUti-partitions1.png" alt="">
-	<figcaption>Figure 2: Add Fixed Tree partition through the `File => Import Fixed Tree` menu.</figcaption>
+
+	<img style="width:30%;" src="figures/BEAUti-sitemodel.png" alt="">
+	<img style="width:30%;" src="figures/BEAUti-clockmodel.png" alt="">
+	<img style="width:30%;" src="figures/BEAUti-prior.png" alt="">
+	<figcaption>Figure 2: Add Tree set partition through the `File => Add Tree Set` menu.</figcaption>
 </figure>
 
-In the partition panel, a new partition will be added with the name H5N1. The site model and clock model panels will show entries for this partition that cannot be changed. The priors panel contains a dummy tree distribution, that will remain constant throughout the analysis. If you want to set up an analysis with an epidemiological tree prior, you can choose another tree prior and estimate parameters for this tree. Here, we will add another partition for a discrete trait.
+In the partition panel, a new partition will be added with the name HBVnogeo. The site model and clock model panels will show entries for this partition that cannot be changed. The priors panel contains a dummy tree distribution, that will remain constant throughout the analysis. If you want to set up an analysis with an epidemiological tree prior, you can choose another tree prior and estimate parameters for this tree. Here, we will add another partition for a discrete trait.
 
-> Select the `File => Add Discrete Trait` menu.
+> Select the `File => Add Spherical Geography` menu.
 
 <figure>
-	<img style="width:45%;" src="figures/BEAUti-discrete-trait.png" alt="">
+	<img style="width:45%;" src="figures/BEAUti-addsgeo.png" alt="">
 </figure>
 
-A dialog is shown to set up the name. Choose `geo`. There is only a single tree in the system, so no need to change it. When adding other kinds of partitions, it may be necessary to select the fixed tree, or after adding the partition, to select all partitions and use the `Link Trees` button.
+A dialog is shown to set up the name. Choose `geo`. There is only a single tree in the system, so no need to change it. When adding other skinds of partitions, it may be necessary to select the tree set partition, or after adding the partition, to select all partitions and use the `Link Trees` button.
 
 <figure>
-	<img style="width:45%;" src="figures/BEAUti-create-trait.png" alt="">
+	<img style="width:45%;" src="figures/BEAUti-dialoggeo.png" alt="">
 </figure>
 
-Next, a dialog is shown where you can set up the trait. Since there are quite a few taxa, we will just load them from the `H5N1locations.dat` file in the data directory.
+Next, a dialog is shown where you can set up the trait. Since there are quite a few taxa, we will set them based on information in the taxon names.
 
-> * Choose the `Guess` button.
-> * Select `read from file`
-> * Select the `Browse` button, and navigate to the `H5N1locations.dat` file in the data section of this tutorial.
+> * Choose the `Guess latitude` button.
+> * Select `split on character`.
+> * Choose `3` for the groups to take.
 > * Select the `OK` button.
-> * All location entries are now populated. Select the `Close` button.
+
+> * Now repeat something similar for the longitude: choose the `Guess longitude` button.
+> * Select `split on character`.
+> * Choose `4` for the groups to take.
+> * Click `OK`.
+> * All location entries are now populated. Select the `Close` button.discrete-trait
 
 <figure>
 	<a id="fig:BEAUti3"></a>
-	<img style="width:45%;" src="figures/BEAUti-dta-set-locations.png" alt="">
-	<img style="width:45%;" src="figures/BEAUti-dta-set-locations2.png" alt="">
-	<img style="width:45%;" src="figures/BEAUti-partition2.png" alt="">
-	<figcaption>Figure 3: Set up DTA locations.</figcaption>
+	<img style="width:30%;" src="figures/BEAUti-setlatitude.png" alt="">
+	<img style="width:30%;" src="figures/BEAUti-setlongitude.png" alt="">
+	<img style="width:30%;" src="figures/BEAUti-locations.png" alt="">
+
+	<img style="width:70%;" src="figures/BEAUti-partition2.png" alt="">
+	<figcaption>Figure 3: Set up locations. A new partition will be added.</figcaption>
 </figure>
 
-A second partition should now have been added to the partitions panel. If necessary, the site model and its parameters can be changed in the site model panel, and the clock model in the clock model panel for the DTA partition. However, for this tutorial, we will keep things simple and use the default site model, clock model and priors.
+A second partition should now have been added to the partitions panel. If necessary, the site model and its parameters can be changed in the site model panel, and the clock model in the clock model panel for the geography partition. For this tutorial, we will keep the site model unchanged, but change the clock model to a relaxed clock with log normally distributed rates.
+
+> * Select the clock model panel
+> * Selec the `geo` partition in the list on the left
+> * Change the clock  model from `Strict clock` to `Relaxed Clock Log Normal`
+
+<figure>
+	<a id="fig:BEAUti4"></a>
+	<img style="width:45%;" src="figures/BEAUti-geoclockmodel.png" alt="">
+	<figcaption>Figure 4: Geography clock model settings.</figcaption>
+</figure>
 
 
 Since the analysis will converge quite quickly, we do not need the default 10 million samples.
 
 > * In the MCMC panel, set the chainLength to 1 million samples.
-> * Change to log frequency of the `treeWithTraitLog` to 1000.
 > * Optionally, you might want to reduce the log frequency of the screen logger to 100000.
-> * Safe the file to `H5N1-dta-fixed-tree.xml`
+> * Safe the file to `HBVtreeset-geo.xml`
 
 <figure>
-	<a id="fig:BEAUti4"></a>
+	<a id="fig:BEAUti5"></a>
 	<img style="width:45%;" src="figures/BEAUti-mcmc.png" alt="">
-	<figcaption>Figure 4: MCMC settings.</figcaption>
+	<figcaption>Figure 5: MCMC settings.</figcaption>
 </figure>
 
 
@@ -136,16 +156,48 @@ This should not take too long.
 <figure>
 	<a id="fig:Tracer"></a>
 	<img style="width:65%;" src="figures/tracer1.png" alt="">
-	<figcaption>Figure 5: Convergence of MCMC in Tracer.</figcaption>
+	<figcaption>Figure 6: Convergence of MCMC in Tracer.</figcaption>
 </figure>
 
 
 ## Comparison with joint analysis
 
 
+To visualise the result, we can use the HeatMapMaker app that comes with the GEO_SPERE package.
+A background map can be downloaded from `https://www.cs.auckland.ac.nz/~remco/geo/World98.png`.
+You can run HeatMapMaker from a terminal through `applauncher` (which comes with BEAST), like so:
+
 ```
-applauncher HeatMap -tree HBVtreeset-geo.trees -tag locationsgeo -back ~/data/map/World98b.png -bound -30,-30,70,160 -width 1024 -height 512
+applauncher HeatMap -tree HBVtreeset-geo.trees -tag locationsgeo -back World98.png -bound -30,-30,70,160 -width 1024 -height 512
 ```
+
+or you can start it from BEAUti:
+
+> * Select the `File => Launch apps` menu.
+> * Select the HeatMapMaker tool from the dialog that pops up.
+> * Select the launch button. A dialog pops up showing all the options that HeatMapMaker provides.
+> * Fill in entries as appropriate:
+>     * use the `browse` button to set tree to `HBVtreeset-geo.trees`,
+>     * use `browse` button to set background to `World98.png`,
+>     * enter `locationsgeo` to tag,
+>     * set bounding box to `-30,-30,70,160`,
+>     * set width to `1024`, set height to `512`,
+>     * set any other options to your liking.
+> * Select the `OK` button, and result will be created in `heatmap.png`.
+
+<figure>
+	<a id="fig:HeatMap"></a>
+	<img style="width:65%;" src="figures/heatmap.png" alt="">
+	<img style="width:65%;" src="figures/heatmap-joint.png" alt="">
+	<figcaption>Figure 7: Heat map of the  locations in the HBV geography reconstruction.
+	Tree set based first, joint geography/sequence heatmap next.</figcaption>
+</figure>
+
+When we compare the reconstruction of the joint geography with sequence analysis with the tree set analysis, there is hardly any difference between them, other than can be expected due to the stochastic nature of the MCMC algorithm.
+
+In this case, when looking at the tree set in DensiTree, it shows that the topology and internal node heights are mainly driven by the sequence data, and the geography partition has little effect on the tree. Therefore, the tree set analysis does not differ substantially from the joint analysis.
+
+Be aware that if there is less signal in the data that produced the tree set, or if the partition added to the tree set analysis has very informative data, it is recommended to perform the joint analysis if possible.
 
 ----
 
