@@ -153,7 +153,7 @@ This should not take too long.
 
 <figure>
 	<a id="fig:Tracer"></a>
-	<img style="width:65%;" src="figures/tracer1.png" alt="">
+	<img style="width:65%;" src="figures/tracer.png" alt="">
 	<figcaption>Figure 6: Convergence of MCMC in Tracer.</figcaption>
 </figure>
 
@@ -185,6 +185,7 @@ or you can start it from BEAUti:
 
 <figure>
 	<a id="fig:HeatMap"></a>
+	<img style="width:65%;" src="figures/densitree.png" alt="">
 	<img style="width:65%;" src="figures/heatmap.png" alt="">
 	<img style="width:65%;" src="figures/heatmap-joint.png" alt="">
 	<figcaption>Figure 7: Heat map of the  locations in the HBV geography reconstruction.
@@ -198,7 +199,6 @@ In this case, when looking at the tree set in DensiTree, it shows that the topol
 Be aware that if there is less signal in the data that produced the tree set, or if the partition added to the tree set analysis has very informative data, it is recommended to perform the joint analysis if possible.
 
 ----
-Figure 2
 # Useful Links
 
 - BEAST 2 website and documentation: [http://www.beast2.org/](http://www.beast2.org/)
