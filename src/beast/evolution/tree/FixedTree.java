@@ -2,12 +2,15 @@ package beast.evolution.tree;
 
 import beast.core.BEASTInterface;
 import beast.core.Description;
+import beast.core.Input;
 import beast.core.Operator;
 import beast.core.util.Log;
 import beast.util.TreeParser;
 
 @Description("Tree that operator proposals leave unchanged")
 public class FixedTree extends TreeParser implements ModedTree {
+	final public Input<Boolean> modeInput = new Input<>("allowNodeHeightChanges", "if true, only topology is fixed and node heights changes are allowed, if false the whole tree is  fixed", false);
+	
 
 	mode _mode = mode.initial;
 	public mode getMode() {return _mode;}
@@ -15,7 +18,11 @@ public class FixedTree extends TreeParser implements ModedTree {
 	@Override
 	public void initAndValidate() {
 		super.initAndValidate();
-		_mode = mode.fixed;
+		if (modeInput.get()) {
+			_mode = mode.topology;
+		} else {
+			_mode = mode.fixed;
+		}
 		
 		for (BEASTInterface o : getOutputs()) {
 			if (o instanceof Operator && ((Operator)o).getWeight() > 0) {
