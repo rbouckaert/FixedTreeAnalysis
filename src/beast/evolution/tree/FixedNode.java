@@ -17,14 +17,16 @@ public class FixedNode extends Node {
 	
 	@Override
 	public void setHeight(final double height) {
-    	if (getMode() == ModedTree.mode.initial) {
+		FixedTree.mode mode_ = getMode();
+    	if (mode_ == ModedTree.mode.initial || mode_ == ModedTree.mode.topology) {
     		super.setHeight(height);
     	}
     }
 	
 	@Override
     public void setHeightDA(final double height) {
-    	if (getMode() == ModedTree.mode.initial) {
+		FixedTree.mode mode_ = getMode();
+    	if (mode_ == ModedTree.mode.initial || mode_ == ModedTree.mode.topology) {
     		super.setHeightDA(height);
     	}
     }
