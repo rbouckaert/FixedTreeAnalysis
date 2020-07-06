@@ -176,6 +176,9 @@
                     </log>
             </logger>
 
+            <operator id='FixedTreeUniformOperator.t:tree' spec='Uniform' weight="30" tree="@Tree.t:tree"/>
+            <operator id='FixedTreeTreeScaler.t:tree' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@Tree.t:tree"/>
+            <operator id='FixedTreeTreeRootScaler.t:tree' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@Tree.t:tree" rootOnly='true'/>
 
             <!-- default tree prior -->
             <prior spec='beast.evolution.tree.FixedTreeDistribution' id="FixedTreeModel.t:tree" tree='@Tree.t:tree'>
@@ -188,6 +191,9 @@
             <connect srcID='FixedTreeModel.t:tree'               targetID='prior' inputName='distribution' if="isInitializing"/>
 			<connect method="beast.app.beauti.SiteModelInputEditor.customConnector"/>
 
+            <connect if="Tree.t:tree/allowNodeHeightChanges=true and Tree.t:tree/estimate=true" inputName="operator" srcID="FixedTreeUniformOperator.t:tree" targetID="mcmc">Draws new internal node heights uniformally for fixed tree</connect>
+            <connect if="Tree.t:tree/allowNodeHeightChanges=true and Tree.t:tree/estimate=true" inputName="operator" srcID="FixedTreeTreeScaler.t:tree" targetID="mcmc">Scales all internal nodes for tree </connect>
+            <connect if="Tree.t:tree/allowNodeHeightChanges=true and Tree.t:tree/estimate=true" inputName="operator" srcID="FixedTreeTreeRootScaler.t:tree" targetID="mcmc">Scales root node for tree </connect>
 <!--
             <connect srcID='treelog.t:tree'                 targetID='mcmc' inputName='logger' if='inposterior(Tree.t:tree)'/>
 -->

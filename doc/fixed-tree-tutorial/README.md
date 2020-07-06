@@ -78,6 +78,18 @@ A dialog is shown where you can select a file containing a tree in NEXUS format.
 
 In the partition panel, a new partition will be added with the name H5N1. The site model and clock model panels will show entries for this partition that cannot be changed. The priors panel contains a dummy tree distribution, that will remain constant throughout the analysis. If you want to set up an analysis with an epidemiological tree prior, you can choose another tree prior and estimate parameters for this tree. Here, we will add another partition for a discrete trait.
 
+
+> Double click on the row in the partition table.
+
+By double clicking the partition, you can change the Newick tree (though should leave taxa the same) and switch between fixing the tree (including node heights) or only fixing the topology, and allowing node heights to be estimated. We will fix the tree here, so there is no need to change anything, just click the `OK` button.
+
+<figure>
+	<img style="width:70%;" src="figures/BEAUti-topology.png" alt="">
+</figure>
+
+
+
+
 > Select the `File => Add Discrete Trait` menu.
 
 <figure>
