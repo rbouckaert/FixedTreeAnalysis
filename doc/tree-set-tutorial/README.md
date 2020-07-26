@@ -87,7 +87,7 @@ In the partition panel, a new partition will be added with the name HBVnogeo. Th
 	<img style="width:45%;" src="figures/BEAUti-addsgeo.png" alt="">
 </figure>
 
-A dialog is shown to set up the name. Choose `geo`. There is only a single tree in the system, so no need to change it. When adding other skinds of partitions, it may be necessary to select the tree set partition, or after adding the partition, to select all partitions and use the `Link Trees` button.
+A dialog is shown to set up the name. Choose `geo`. There is only a single tree in the system, so no need to change it. When adding other kinds of partitions, it may be necessary to select the tree set partition, or after adding the partition, to select all partitions and use the `Link Trees` button.
 
 <figure>
 	<img style="width:45%;" src="figures/BEAUti-dialoggeo.png" alt="">
@@ -130,7 +130,7 @@ A second partition should now have been added to the partitions panel. If necess
 
 Since the analysis will converge quite quickly, we do not need the default 10 million samples.
 
-> * In the MCMC panel, set the chainLength to 1Figure 2 million samples.
+> * In the MCMC panel, set the chainLength to 1 million samples.
 > * Optionally, you might want to reduce the log frequency of the screen logger to 100000.
 > * Safe the file to `HBVtreeset-geo.xml`
 
