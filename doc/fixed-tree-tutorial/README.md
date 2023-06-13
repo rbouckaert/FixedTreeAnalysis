@@ -3,7 +3,7 @@ author: Remco Bouckaert
 level: Intermediate
 title: Fixed Tree Analysis Tutorial
 subtitle: For post-hoc analyses
-beastversion: 2.6.3
+beastversion: 2.7.4
 ---
 
 
@@ -25,7 +25,7 @@ In this tutorial, we will look at a phylogeographical reconstruction {% cite  le
 
 ### BEAST2 - Bayesian Evolutionary Analysis Sampling Trees 2
 
-BEAST2 is a free software package for Bayesian evolutionary analysis of molecular sequences using MCMC and strictly oriented toward inference using rooted, time-measured phylogenetic trees {% cite Bouckaert2014,bouckaert2019beast --file master-refs.bib %}. This tutorial uses the BEAST2 version 2.6.3.
+BEAST2 is a free software package for Bayesian evolutionary analysis of molecular sequences using MCMC and strictly oriented toward inference using rooted, time-measured phylogenetic trees {% cite Bouckaert2014,bouckaert2019beast --file master-refs.bib %}. This tutorial uses the BEAST2 version 2.7.4.
 
 ### BEAUti2 - Bayesian Evolutionary Analysis Utility
 
@@ -84,7 +84,7 @@ In the partition panel, a new partition will be added with the name H5N1. The si
 By double clicking the partition, you can change the Newick tree (though should leave taxa the same) and switch between fixing the tree (including node heights) or only fixing the topology, and allowing node heights to be estimated. We will fix the tree here, so there is no need to change anything, just click the `OK` button.
 
 <figure>
-	<img style="width:70%;" src="figures/BEAUti-topology.png" alt="">
+	<img style="width:30%;" src="figures/BEAUti-topology.png" alt="">
 </figure>
 
 

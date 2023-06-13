@@ -142,6 +142,7 @@ public class BeautiFixedTreeAlignmentProvider extends BeautiFixedAlignmentProvid
 				//panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 				StringInputEditor newick = new StringInputEditor(doc);
 				StringContainer c = new StringContainer(parser.newickInput.get());
+				c.setID("newick");
 				newick.init(c.stringInput, c, -1, ExpandOption.FALSE, true);
 				VBox panel = FXUtils.newVBox();
 				panel.getChildren().add(newick);
