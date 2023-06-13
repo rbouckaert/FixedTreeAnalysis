@@ -1,40 +1,45 @@
 package beast.app.beauti;
 
-import java.awt.Frame;
-import java.awt.LayoutManager;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
-import javax.swing.BoxLayout;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
+//import javax.swing.BoxLayout;
+//import javax.swing.Icon;
+//import javax.swing.ImageIcon;
+//import javax.swing.JDialog;
+//import javax.swing.JOptionPane;
+//import javax.swing.JPanel;
+//import javax.swing.border.EmptyBorder;
 
-import beast.app.draw.BooleanInputEditor;
-import beast.app.draw.InputEditor.ExpandOption;
-import beast.app.draw.InputEditorFactory;
-import beast.app.draw.ModelBuilder;
-import beast.app.draw.StringInputEditor;
-import beast.app.util.Utils;
-import beast.core.BEASTInterface;
-import beast.core.BEASTObject;
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.State;
-import beast.evolution.alignment.Alignment;
-import beast.evolution.alignment.Sequence;
+import beastfx.app.inputeditor.BeautiDoc;
+import beastfx.app.inputeditor.BooleanInputEditor;
+import beastfx.app.inputeditor.InputEditor.ExpandOption;
+import beastfx.app.inputeditor.InputEditorFactory;
+import beastfx.app.tools.ModelBuilder;
+import beastfx.app.util.Alert;
+import beastfx.app.util.FXUtils;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.DialogPane;
+import javafx.scene.layout.VBox;
+import beastfx.app.inputeditor.StringInputEditor;
+import beast.base.core.BEASTInterface;
+import beast.base.core.BEASTObject;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.State;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.alignment.Sequence;
 import beast.evolution.likelihood.FixedTreeLikelihood;
 import beast.evolution.tree.FixedTree;
-import beast.evolution.tree.Tree;
-import beast.util.BEASTClassLoader;
-import beast.util.NexusParser;
-import beast.util.TreeParser;
+import beast.base.evolution.tree.Tree;
+import beast.pkgmgmt.BEASTClassLoader;
+import beast.base.parser.NexusParser;
+import beast.base.evolution.tree.TreeParser;
 
 @Description("Alignment provider for a fixed tree analysis")
 public class BeautiFixedTreeAlignmentProvider extends BeautiFixedAlignmentProvider {
@@ -42,16 +47,16 @@ public class BeautiFixedTreeAlignmentProvider extends BeautiFixedAlignmentProvid
 	@Override
 	public List<BEASTInterface> getAlignments(BeautiDoc doc) {
 		try {
-            File file = Utils.getLoadFile("Open tree file with fixed tree");
+            File file = FXUtils.getLoadFile("Open tree file with fixed tree");
             if (file != null) {
             	NexusParser parser = new NexusParser();
             	parser.parseFile(file);
             	if (parser.trees == null || parser.trees.size() == 0) {
-            		JOptionPane.showMessageDialog(null, "Did not find any tree in the file -- giving up.");
+            		Alert.showMessageDialog(null, "Did not find any tree in the file -- giving up.");
             		return null;
             	}
             	if (parser.trees.size() > 1) {
-            		JOptionPane.showMessageDialog(null, "Found more than one tree in the file -- expected only 1!");
+            		Alert.showMessageDialog(null, "Found more than one tree in the file -- expected only 1!");
             		return null;
             	}
             	
@@ -60,7 +65,7 @@ public class BeautiFixedTreeAlignmentProvider extends BeautiFixedAlignmentProvid
             }
         } catch (Exception e) {
         	e.printStackTrace();
-        	JOptionPane.showMessageDialog(null, "Something went wrong: " + e.getMessage());
+        	Alert.showMessageDialog(null, "Something went wrong: " + e.getMessage());
         }
 		return null;
 	}
@@ -100,7 +105,7 @@ public class BeautiFixedTreeAlignmentProvider extends BeautiFixedAlignmentProvid
     }
 
 	@Override
-	protected int matches(Alignment alignment) {
+	public int matches(Alignment alignment) {
 		for (BEASTInterface output : alignment.getOutputs()) {
 			if (output instanceof FixedTreeLikelihood) {
 				return 10;
@@ -123,7 +128,7 @@ public class BeautiFixedTreeAlignmentProvider extends BeautiFixedAlignmentProvid
 	}
 	
 	@Override
-	void editAlignment(Alignment alignment, BeautiDoc doc) {		
+	public void editAlignment(Alignment alignment, BeautiDoc doc) {		
 		FixedTreeLikelihood likelihood = null;
 		for (BEASTInterface output : alignment.getOutputs()) {
 			if (output instanceof FixedTreeLikelihood) {
@@ -133,47 +138,51 @@ public class BeautiFixedTreeAlignmentProvider extends BeautiFixedAlignmentProvid
 				
 				//Object result = JOptionPane.showInputDialog("Edit Newick tree:", parser.newickInput.get());
 				
-				JPanel panel  = new JPanel();
-				panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+				//JPanel panel  = new JPanel();
+				//panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
 				StringInputEditor newick = new StringInputEditor(doc);
 				StringContainer c = new StringContainer(parser.newickInput.get());
 				newick.init(c.stringInput, c, -1, ExpandOption.FALSE, true);
-				panel.add(newick);
+				VBox panel = FXUtils.newVBox();
+				panel.getChildren().add(newick);
 				
 				boolean originalMode = tree.modeInput.get(); 
 				BooleanInputEditor mode = new BooleanInputEditor(doc);
 				mode.init(tree.modeInput, tree, -1, ExpandOption.FALSE, false);
-				panel.add(mode);
+				panel.getChildren().add(mode);
 				
 				
-				
-		        URL url = BEASTClassLoader.classLoader.getResource(ModelBuilder.ICONPATH + "beast.png");
-		        Icon icon = new ImageIcon(url);
-		        JOptionPane optionPane = new JOptionPane(panel,
-		                JOptionPane.PLAIN_MESSAGE,
-		                JOptionPane.DEFAULT_OPTION,
-		                icon,
-		                null,
-		                null);
-		        optionPane.setBorder(new EmptyBorder(12, 12, 12, 12));
+				Dialog dlg = new Dialog();
+				DialogPane pane = new DialogPane();
+				pane.setContent(panel);
+				pane.getButtonTypes().addAll(ButtonType.CANCEL, ButtonType.OK);
+				dlg.setDialogPane(pane);
+				dlg.setTitle("Discrete trait editor");
+		    	pane.setId("DiscreteTraitEditor");
+		        dlg.setResizable(true);
+		        Optional<?> value = dlg.showAndWait();
 
-		        Frame frame = (doc != null ? doc.getFrame(): Frame.getFrames()[0]);
-		        final JDialog dialog = optionPane.createDialog(frame, "Fixed tree properties");
-		        dialog.pack();
-
-		        dialog.setVisible(true);
-		        Integer value = (Integer) optionPane.getValue();
-		        if (value != null && value != -1 && value != JOptionPane.CANCEL_OPTION) {
+				
+//		        URL url = BEASTClassLoader.classLoader.getResource(ModelBuilder.ICONPATH + "beast.png");
+//		        Icon icon = new ImageIcon(url);
+//		        JOptionPane optionPane = new JOptionPane(panel,
+//		                JOptionPane.PLAIN_MESSAGE,
+//		                JOptionPane.DEFAULT_OPTION,
+//		                icon,
+//		                null,
+//		                null);
+//		        optionPane.setBorder(new EmptyBorder(12, 12, 12, 12));
+//
+//		        Frame frame = (doc != null ? doc.getFrame(): Frame.getFrames()[0]);
+//		        final JDialog dialog = optionPane.createDialog(frame, "Fixed tree properties");
+//		        dialog.pack();
+//
+//		        dialog.setVisible(true);
+//		        Integer value = (Integer) optionPane.getValue();
+		        if (value.toString().toLowerCase().contains("ok")) {
 		        	parser.newickInput.setValue(c.stringInput.get(), parser);		        	
-		        } else {
 		        	tree.modeInput.set(originalMode); 
 		        }
-
-				
-//				Object result = JOptionPane.showMessageDialog(panel);
-//				if (result != null) {
-//					parser.newickInput.setValue(result, parser);
-//				}
 				return;
 			}
 		}

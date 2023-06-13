@@ -9,8 +9,10 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
-import beast.core.BEASTInterface;
-import beast.core.Description;
+import beast.base.core.BEASTInterface;
+import beast.base.core.Description;
+import beastfx.app.inputeditor.BeautiAlignmentProvider;
+import beastfx.app.inputeditor.BeautiDoc;
 
 
 @Description("Class for creating new alignments to be edited by AlignmentListInputEditor")

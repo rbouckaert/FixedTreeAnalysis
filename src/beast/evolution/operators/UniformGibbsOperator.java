@@ -1,7 +1,8 @@
 package beast.evolution.operators;
 
-import beast.core.Description;
-import beast.evolution.operators.UniformOperator;
+
+import beast.base.core.Description;
+import beast.base.inference.operator.UniformOperator;
 
 @Description("Uniform operator that is always accepted")
 public class UniformGibbsOperator extends UniformOperator {

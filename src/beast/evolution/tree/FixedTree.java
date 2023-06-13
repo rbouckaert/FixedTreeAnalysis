@@ -1,11 +1,12 @@
 package beast.evolution.tree;
 
-import beast.core.BEASTInterface;
-import beast.core.Description;
-import beast.core.Input;
-import beast.core.Operator;
-import beast.core.util.Log;
-import beast.util.TreeParser;
+import beast.base.core.BEASTInterface;
+import beast.base.core.Description;
+import beast.base.core.Input;
+import beast.base.inference.Operator;
+import beast.base.core.Log;
+import beast.base.evolution.tree.Node;
+import beast.base.evolution.tree.TreeParser;
 
 @Description("Tree that operator proposals leave unchanged")
 public class FixedTree extends TreeParser implements ModedTree {

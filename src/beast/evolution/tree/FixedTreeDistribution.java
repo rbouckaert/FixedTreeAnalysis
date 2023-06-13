@@ -1,7 +1,8 @@
 package beast.evolution.tree;
 
-import beast.core.Description;
-import beast.evolution.speciation.SpeciesTreeDistribution;
+import beast.base.core.Description;
+import beast.base.evolution.speciation.SpeciesTreeDistribution;
+import beast.base.evolution.tree.TreeInterface;
 
 @Description("Dummy/uniform tree prior, useful for a fixed tree analysis")
 public class FixedTreeDistribution extends SpeciesTreeDistribution {

@@ -1,3 +1,4 @@
-<package name='FixedTreeAnalysis' version='0.0.1'>
-	<depends on='beast2' atleast='2.6.3' atmost="2.6.9"/>
+<package name='FixedTreeAnalysis' version='0.0.2'>
+	<depends on='BEAST.base' atleast='2.7.4'/>
+	<depends on='BEAST.app' atleast='2.7.4'/>
 </package>

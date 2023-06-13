@@ -2,14 +2,14 @@ package beast.app.beauti;
 
 import javax.swing.Box;
 
-import beast.app.draw.InputEditor;
-import beast.core.BEASTInterface;
-import beast.core.Input;
+import beastfx.app.inputeditor.BeautiDoc;
+import beastfx.app.inputeditor.InputEditor;
+import beast.base.core.BEASTInterface;
+import beast.base.core.Input;
 import beast.evolution.branchratemodel.FixedClockModel;
 
 public class FixedClockModelInputEditor extends InputEditor.Base {
 
-	private static final long serialVersionUID = 1L;
 
 	public FixedClockModelInputEditor(BeautiDoc doc) {
 		super(doc);
@@ -35,7 +35,7 @@ public class FixedClockModelInputEditor extends InputEditor.Base {
         m_bAddButtons = addButtons;
 
         //add(m_entry);
-        add(Box.createHorizontalGlue());
+        // add(Box.createHorizontalGlue());
         addValidationLabel();
 	}
 

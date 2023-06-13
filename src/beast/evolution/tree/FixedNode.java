@@ -2,7 +2,8 @@ package beast.evolution.tree;
 
 import java.util.TreeMap;
 
-import beast.core.Description;
+import beast.base.core.Description;
+import beast.base.evolution.tree.Node;
 
 @Description("Node in a fixed tree: it will not allow editing once initialised")
 public class FixedNode extends Node {
@@ -41,18 +42,18 @@ public class FixedNode extends Node {
 
 	
 	@Override
-    protected void setParent(final Node parent, final boolean inOperator) {
+    public void setParent(final Node parent, final boolean inOperator) {
     	if (getMode() == ModedTree.mode.initial) {
     		super.setParent(parent, inOperator);
     	}
 	}
 		
-	@Override
-	void setParentImmediate(final Node parent) {
-    	if (getMode() == ModedTree.mode.initial) {
-    		super.setParentImmediate(parent);
-    	}
-	}
+//	@Override
+//	void setParentImmediate(final Node parent) {
+//    	if (getMode() == ModedTree.mode.initial) {
+//    		super.setParentImmediate(parent);
+//    	}
+//	}
 	
 	@Override
     public void removeChild(final Node child) {
@@ -110,13 +111,16 @@ public class FixedNode extends Node {
 	@Override
     public Node copy() {
         final Node node = new FixedNode();
-        node.height = height;
-        node.labelNr = labelNr;
+        node.setHeight(height);
+        node.setNr(labelNr);
         node.metaDataString = metaDataString;
         node.lengthMetaDataString = lengthMetaDataString;
-        node.metaData = new TreeMap<>(metaData);
-        node.lengthMetaData = new TreeMap<>(lengthMetaData);
-        node.parent = null;
+        // node.setMetaData = new TreeMap<>(metaData);
+        // node.lengthMetaData = new TreeMap<>(lengthMetaData);
+        for (String key : lengthMetaData.keySet()) {
+        	node.setLengthMetaData(key, lengthMetaData.get(key));
+        }
+        node.setParent(null);
         node.setID(getID());
 
         for (final Node child : getChildren()) {

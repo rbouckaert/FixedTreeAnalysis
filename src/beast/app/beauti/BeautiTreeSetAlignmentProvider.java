@@ -6,19 +6,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JOptionPane;
-import beast.app.util.Utils;
-import beast.core.BEASTInterface;
-import beast.core.Description;
-import beast.core.State;
-import beast.core.parameter.IntegerParameter;
-import beast.evolution.alignment.Alignment;
-import beast.evolution.alignment.Sequence;
-import beast.evolution.alignment.Taxon;
-import beast.evolution.alignment.TaxonSet;
+import beast.base.core.BEASTInterface;
+import beast.base.core.Description;
+import beast.base.inference.State;
+import beast.base.inference.parameter.IntegerParameter;
+import beast.base.evolution.alignment.Alignment;
+import beast.base.evolution.alignment.Sequence;
+import beast.base.evolution.alignment.Taxon;
+import beast.base.evolution.alignment.TaxonSet;
 import beast.evolution.likelihood.FixedTreeLikelihood;
 import beast.evolution.tree.IndexedTreeFromSet;
-import beast.evolution.tree.Tree;
-import beast.util.NexusParser;
+import beastfx.app.inputeditor.BeautiDoc;
+import beastfx.app.util.FXUtils;
+import beast.base.evolution.tree.Tree;
+import beast.base.parser.NexusParser;
 
 @Description("Alignment provider for a tree set analysis")
 public class BeautiTreeSetAlignmentProvider extends BeautiFixedAlignmentProvider {
@@ -26,7 +27,7 @@ public class BeautiTreeSetAlignmentProvider extends BeautiFixedAlignmentProvider
 	@Override
 	public List<BEASTInterface> getAlignments(BeautiDoc doc) {
 		try {
-            File file = Utils.getLoadFile("Open tree file with tree set");
+            File file = FXUtils.getLoadFile("Open tree file with tree set");
             if (file != null) {
             	NexusParser parser = new NexusParser();
             	parser.parseFile(file);
@@ -94,7 +95,7 @@ public class BeautiTreeSetAlignmentProvider extends BeautiFixedAlignmentProvider
     }
 
 	@Override
-	protected int matches(Alignment alignment) {
+	public int matches(Alignment alignment) {
 		for (BEASTInterface output : alignment.getOutputs()) {
 			if (output instanceof FixedTreeLikelihood) {
 				FixedTreeLikelihood likelihood = (FixedTreeLikelihood) output;
@@ -107,7 +108,7 @@ public class BeautiTreeSetAlignmentProvider extends BeautiFixedAlignmentProvider
 	}
 	
 	@Override
-	void editAlignment(Alignment alignment, BeautiDoc doc) {		
+	public void editAlignment(Alignment alignment, BeautiDoc doc) {		
 		FixedTreeLikelihood likelihood = null;
 		for (BEASTInterface output : alignment.getOutputs()) {
 			if (output instanceof FixedTreeLikelihood) {
