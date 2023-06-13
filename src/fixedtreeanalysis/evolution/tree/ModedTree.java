@@ -1,4 +1,4 @@
-package beast.evolution.tree;
+package fixedtreeanalysis.evolution.tree;
 
 public interface ModedTree {
 	enum mode {initial,fixed,topology}

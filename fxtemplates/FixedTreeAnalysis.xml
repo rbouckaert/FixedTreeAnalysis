@@ -1,5 +1,5 @@
 <beast version='2.0'
-       namespace='beast.app.beauti:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.branchratemodel:beast.base.evolution.speciation:beast.base.evolution.tree.coalescent:beast.base.util:beast.base.math:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood:beast.evolution:beast.base.math.distributions'
+       namespace='beastfx.app.inputeditor:beast.app.beauti:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.branchratemodel:beast.base.evolution.speciation:beast.base.evolution.tree.coalescent:beast.base.util:beast.base.math:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood:beast.evolution:beast.base.math.distributions'
 	templateinfo='template for fixed tree analysis, to which tree priors or other partition parameters can be estimated'>
 
 <map name='connect' reserved='true'>beastfx.app.inputeditor.BeautiConnector</map>
@@ -98,8 +98,8 @@
                         beast.base.evolution.tree.coalescent.BayesianSkyline.groupSizes,
                         beast.base.evolution.tree.coalescent.BayesianSkyline.popSizes,
                         beast.base.evolution.speciation.YuleModel.originHeight,
-                        beast.evolution.tree.FixedTreeDistribution.tree,
-                        beast.evolution.tree.FixedTreeDistribution.treeIntervals
+                        fixedtreeanalysis.evolution.tree.FixedTreeDistribution.tree,
+                        fixedtreeanalysis.evolution.tree.FixedTreeDistribution.treeIntervals
                         '
                     buttonLabelMap='beast.app.beauti.BeautiInitDlg.&gt;&gt; details=Edit parameters'
                 >
@@ -153,18 +153,18 @@
         />
 		<mergepoint id='aux-panels'/>
 
-		<alignmentProvider id="Import Fixed Tree" spec='BeautiFixedTreeAlignmentProvider' template='@FixedTreePartitionTemplate'/>
+		<alignmentProvider id="Import Fixed Tree" spec='fixedtreeanalysis.app.beauti.BeautiFixedTreeAlignmentProvider' template='@FixedTreePartitionTemplate'/>
 
 
-        <partitiontemplate id='FixedTreePartitionTemplate' spec='BeautiSubTemplate' class='beast.evolution.likelihood.FixedTreeLikelihood' mainid='mcmc'>
+        <partitiontemplate id='FixedTreePartitionTemplate' spec='BeautiSubTemplate' class='fixedtreeanalysis.evolution.likelihood.FixedTreeLikelihood' mainid='mcmc'>
 <![CDATA[
-            <distribution spec='FixedTreeLikelihood' id="treeLikelihood.$(n)">
+            <distribution spec='fixedtreeanalysis.evolution.likelihood.FixedTreeLikelihood' id="treeLikelihood.$(n)">
                 <data idref="data"/>
                 <tree idref="Tree.t:tree"/>
-                <siteModel spec='FixedSiteModel' id="FixedSiteModel.s:$(n)" gammaCategoryCount='0' proportionInvariant="0.0" shape="1.0">
+                <siteModel spec='fixedtreeanalysis.evolution.sitemodel.SiteModel' id="FixedSiteModel.s:$(n)" gammaCategoryCount='0' proportionInvariant="0.0" shape="1.0">
                 <mutationRate spec="parameter.RealParameter" lower="0.0" upper="1.0" estimate="false">1.0</mutationRate>
                 </siteModel>
-                <branchRateModel spec='FixedClockModel' id='FixedClock.c:$(n)'>
+                <branchRateModel spec='fixedtreeanalysis.evolution.branchratemodel.FixedClockModel' id='FixedClock.c:$(n)'>
                 	<clock.rate spec="parameter.RealParameter" estimate="false" value="1.0"/>
                 </branchRateModel>
             </distribution>
@@ -176,12 +176,12 @@
                     </log>
             </logger>
 
-            <operator id='FixedTreeUniformOperator.t:tree' spec='Uniform' weight="30" tree="@Tree.t:tree"/>
-            <operator id='FixedTreeTreeScaler.t:tree' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@Tree.t:tree"/>
-            <operator id='FixedTreeTreeRootScaler.t:tree' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@Tree.t:tree" rootOnly='true'/>
+            <operator id='fixedtreeanalysis.evolution.operators.FixedTreeUniformOperator.t:tree' spec='Uniform' weight="30" tree="@Tree.t:tree"/>
+            <operator id='fixedtreeanalysis.evolution.operators.FixedTreeTreeScaler.t:tree' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@Tree.t:tree"/>
+            <operator id='fixedtreeanalysis.evolution.operators.FixedTreeTreeRootScaler.t:tree' spec='ScaleOperator' scaleFactor="0.5" weight="3" tree="@Tree.t:tree" rootOnly='true'/>
 
             <!-- default tree prior -->
-            <prior spec='beast.evolution.tree.FixedTreeDistribution' id="FixedTreeModel.t:tree" tree='@Tree.t:tree'>
+            <prior spec='fixedtreeanalysis.evolution.tree.FixedTreeDistribution' id="FixedTreeModel.t:tree" tree='@Tree.t:tree'>
             <!--
                 <parameter name='birthDiffRate' id="FTAbirthRate.t:tree" value='1.0' estimate='false'/>
             -->
@@ -207,9 +207,9 @@
 		<mergepoint id='treePriorTemplates'/>
         <mergepoint id='parametricDistributions'/>
 
-        <subtemplate id='FixedTreeModel' class='beast.base.evolution.speciation.YuleModel' mainid='FixedTreeModel.t:$(n)'>
+        <subtemplate id='FixedTreeModel' class='fixedtreeanalysis.evolution.tree.FixedTreeDistribution' mainid='FixedTreeModel.t:$(n)'>
               <![CDATA[
-              <prior spec='beast.evolution.tree.FixedTreeDistribution' id="FixedTreeModel.t:$(n)" tree='@Tree.t:$(n)'>
+              <prior spec='fixedtreeanalysis.evolution.tree.FixedTreeDistribution' id="FixedTreeModel.t:$(n)" tree='@Tree.t:$(n)'>
               </prior>
               ]]>
         </subtemplate>
@@ -223,7 +223,7 @@
 
 
 
-		<alignmentProvider id="Add Alignment Partition" spec='BeautiFixedAlignmentProvider' template='@StandardFixedPartitionTemplate'/>
+		<alignmentProvider id="Add Alignment Partition" spec='fixedtreeanalysis.app.beauti.BeautiFixedAlignmentProvider' template='@StandardFixedPartitionTemplate'/>
 
 
         <subtemplate id='StandardFixedPartitionTemplate' spec='BeautiSubTemplate' class='beast.base.evolution.likelihood.ThreadedTreeLikelihood' mainid='mcmc'>
@@ -250,11 +250,11 @@
 
             <!-- tree and its properties -->
             <taxonset id='TaxonSet.$(n)' spec='beast.base.evolution.alignment.TaxonSet' alignment='@$(n)' />
-            <plugin spec='beast.evolution.tree.FixedTree' id='Tree.t:tree' taxonset='@TaxonSet.$(n)'/>
+            <plugin spec='fixedtreeanalysis.evolution.tree.FixedTree' id='Tree.t:tree' taxonset='@TaxonSet.$(n)'/>
 
 
             <!-- default tree prior -->
-            <prior spec='beast.evolution.tree.FixedTreeDistribution' id="FixedTreeModel.t:tree" tree='@Tree.t:tree'>
+            <prior spec='fixedtreeanalysis.evolution.tree.FixedTreeDistribution' id="FixedTreeModel.t:tree" tree='@Tree.t:tree'>
             </prior>
 
             <plugin id='TreeHeight.t:tree' spec='beast.base.evolution.tree.TreeHeightLogger' tree='@Tree.t:tree'/>
@@ -342,7 +342,7 @@
 
         <logger id='screenlog' logEvery="1000">
             <log idref="posterior"/>
-      	    <ESS spec='ESS' name='log' arg="@posterior"/>
+      	    <ESS spec='beast.base.inference.util.ESS' name='log' arg="@posterior"/>
             <log idref="likelihood"/>
             <log idref="prior"/>
         </logger>

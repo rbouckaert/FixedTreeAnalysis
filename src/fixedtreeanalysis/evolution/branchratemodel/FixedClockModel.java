@@ -1,4 +1,4 @@
-package beast.evolution.branchratemodel;
+package fixedtreeanalysis.evolution.branchratemodel;
 
 import beast.base.core.Description;
 import beast.base.evolution.branchratemodel.StrictClockModel;

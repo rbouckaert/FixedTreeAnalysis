@@ -1,12 +1,12 @@
-package beast.app.beauti;
+package fixedtreeanalysis.app.beauti;
 
 import javax.swing.Box;
 
 import beastfx.app.inputeditor.BeautiDoc;
 import beastfx.app.inputeditor.InputEditor;
+import fixedtreeanalysis.evolution.branchratemodel.FixedClockModel;
 import beast.base.core.BEASTInterface;
 import beast.base.core.Input;
-import beast.evolution.branchratemodel.FixedClockModel;
 
 public class FixedClockModelInputEditor extends InputEditor.Base {
 

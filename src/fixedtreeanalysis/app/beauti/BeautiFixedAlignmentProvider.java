@@ -1,4 +1,4 @@
-package beast.app.beauti;
+package fixedtreeanalysis.app.beauti;
 
 
 

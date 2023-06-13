@@ -1,4 +1,4 @@
-package beast.app.beauti;
+package fixedtreeanalysis.app.beauti;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,6 +22,8 @@ import beastfx.app.inputeditor.InputEditorFactory;
 import beastfx.app.tools.ModelBuilder;
 import beastfx.app.util.Alert;
 import beastfx.app.util.FXUtils;
+import fixedtreeanalysis.evolution.likelihood.FixedTreeLikelihood;
+import fixedtreeanalysis.evolution.tree.FixedTree;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
 import javafx.scene.control.DialogPane;
@@ -34,8 +36,6 @@ import beast.base.core.Input;
 import beast.base.inference.State;
 import beast.base.evolution.alignment.Alignment;
 import beast.base.evolution.alignment.Sequence;
-import beast.evolution.likelihood.FixedTreeLikelihood;
-import beast.evolution.tree.FixedTree;
 import beast.base.evolution.tree.Tree;
 import beast.pkgmgmt.BEASTClassLoader;
 import beast.base.parser.NexusParser;

@@ -1,4 +1,4 @@
-package beast.evolution.tree;
+package fixedtreeanalysis.evolution.tree;
 
 import java.io.File;
 import java.io.IOException;

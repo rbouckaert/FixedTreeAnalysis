@@ -1,4 +1,4 @@
-package beast.app.beauti;
+package fixedtreeanalysis.app.beauti;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,10 +14,10 @@ import beast.base.evolution.alignment.Alignment;
 import beast.base.evolution.alignment.Sequence;
 import beast.base.evolution.alignment.Taxon;
 import beast.base.evolution.alignment.TaxonSet;
-import beast.evolution.likelihood.FixedTreeLikelihood;
-import beast.evolution.tree.IndexedTreeFromSet;
 import beastfx.app.inputeditor.BeautiDoc;
 import beastfx.app.util.FXUtils;
+import fixedtreeanalysis.evolution.likelihood.FixedTreeLikelihood;
+import fixedtreeanalysis.evolution.tree.IndexedTreeFromSet;
 import beast.base.evolution.tree.Tree;
 import beast.base.parser.NexusParser;
 

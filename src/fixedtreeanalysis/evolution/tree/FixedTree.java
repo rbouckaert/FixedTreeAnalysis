@@ -1,4 +1,4 @@
-package beast.evolution.tree;
+package fixedtreeanalysis.evolution.tree;
 
 import beast.base.core.BEASTInterface;
 import beast.base.core.Description;

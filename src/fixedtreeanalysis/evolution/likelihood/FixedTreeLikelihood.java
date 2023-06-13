@@ -1,4 +1,4 @@
-package beast.evolution.likelihood;
+package fixedtreeanalysis.evolution.likelihood;
 
 import beast.base.core.Description;
 import beast.base.evolution.likelihood.GenericTreeLikelihood;

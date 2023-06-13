@@ -1,6 +1,5 @@
-package beast.evolution.tree;
+package fixedtreeanalysis.evolution.tree;
 
-import java.util.TreeMap;
 
 import beast.base.core.Description;
 import beast.base.evolution.tree.Node;
