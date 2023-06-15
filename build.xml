@@ -172,6 +172,7 @@
 
 		<copy todir="${Add_on_dir}">
 			<fileset file="version.xml"/>
+			<fileset file="LICENSE.txt"/>
 		</copy>
 		<copy todir="${Add_on_dir}/examples">
 			<fileset dir="examples" includes="*.xml">

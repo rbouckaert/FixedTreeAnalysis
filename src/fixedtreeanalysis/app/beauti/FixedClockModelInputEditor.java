@@ -5,6 +5,8 @@ import javax.swing.Box;
 import beastfx.app.inputeditor.BeautiDoc;
 import beastfx.app.inputeditor.InputEditor;
 import fixedtreeanalysis.evolution.branchratemodel.FixedClockModel;
+import javafx.geometry.Insets;
+import javafx.scene.layout.HBox;
 import beast.base.core.BEASTInterface;
 import beast.base.core.Input;
 
@@ -29,6 +31,8 @@ public class FixedClockModelInputEditor extends InputEditor.Base {
         this.itemNr= itemNr;
         
         m_bAddButtons = true;
+    	pane = new HBox();
+    	pane.setPadding(new Insets(5));
         addInputLabel("Fixed tree model partition --", "<html>Fixed tree model.<br>There are no parameters to change.</html>");
         addInputLabel("No parameter to change", "<html>Fixed tree model.<br>There are no parameters to change.</html>");
         
@@ -37,6 +41,7 @@ public class FixedClockModelInputEditor extends InputEditor.Base {
         //add(m_entry);
         // add(Box.createHorizontalGlue());
         addValidationLabel();
+        getChildren().add(pane);
 	}
 
 }

@@ -263,7 +263,7 @@
 
             <!-- tree and its properties -->
             <taxonset id='TaxonSet.$(n)' spec='beast.base.evolution.alignment.TaxonSet' alignment='@$(n)' />
-            <plugin spec='beast.evolution.tree.IndexedTreeFromSet' id='Tree.t:tree' taxonset='@TaxonSet.$(n)' burnin="10" index="@treeIndex.t:tree"/>
+            <plugin spec='fixedtreeanalysis.evolution.tree.IndexedTreeFromSet' id='Tree.t:tree' taxonset='@TaxonSet.$(n)' burnin="10" index="@treeIndex.t:tree"/>
 
 
             <!-- default tree prior -->

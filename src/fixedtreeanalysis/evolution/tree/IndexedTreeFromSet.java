@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Set;
 
 import beast.base.core.BEASTInterface;
+import beast.base.core.Citation;
 import beast.base.core.Description;
 import beast.base.core.Input;
 import beast.base.inference.Operator;
@@ -20,6 +21,7 @@ import beast.base.evolution.tree.Tree;
 import beast.base.parser.NexusParser;
 
 @Description("Tree that is selected from a tree set loaded from file")
+@Citation("Pagel M, Meade A, Barker D. Bayesian estimation of ancestral character states on phylogenies. Systematic biology. 2004 Oct 1;53(5):673-84.")
 public class IndexedTreeFromSet extends Tree implements ModedTree {
 	final public Input<String> treeSetFileInput = new Input<>("treeSetFile", "file containing a tree set in Nexus format", Validate.REQUIRED);
 	final public Input<Integer> burninInput = new Input<>("burnin", "percentage of the log file to disregard as burn-in (default 10)" , 10);
@@ -245,5 +247,9 @@ public class IndexedTreeFromSet extends Tree implements ModedTree {
         	}
         }
     }
-    
+
+    @Override
+    public int scale(double scale) {
+    	return 0;
+    }
 }

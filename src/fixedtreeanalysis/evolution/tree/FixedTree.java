@@ -44,4 +44,12 @@ public class FixedTree extends TreeParser implements ModedTree {
 		}
 	}
 	
+	@Override
+	public int scale(double scale) {
+		if (modeInput.get()) {
+			return super.scale(scale);
+		}
+		return 0;
+	}
+	
 }

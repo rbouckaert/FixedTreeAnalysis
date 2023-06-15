@@ -1,185 +1,238 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='TreeSetAnalysis' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.evolution.likelihood" required="" version="2.6">
-
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><beast beautitemplate='TreeSetAnalysis' beautistatus='' namespace="beast.core:beast.evolution.alignment:beast.evolution.tree.coalescent:beast.core.util:beast.evolution.nuc:beast.evolution.operators:beast.evolution.sitemodel:beast.evolution.substitutionmodel:beast.base.evolution.alignment:beast.pkgmgmt:beast.base.core:beast.base.inference:beast.base.evolution.tree.coalescent:beast.pkgmgmt:beast.base.core:beast.base.inference.util:beast.evolution.nuc:beast.base.evolution.operator:beast.base.inference.operator:beast.base.evolution.sitemodel:beast.base.evolution.substitutionmodel:beast.base.evolution.likelihood" required="BEAST.base v2.7.4:FixedTreeAnalysis v0.0.2:GEO_SPHERE v1.4.0:ORC v1.1.1:BEASTLabs v2.0.0" version="2.7">
 
     <data
 id="HBVnogeo"
 spec="Alignment">
-                    <sequence id="Sequence.0" spec="Sequence" taxon="AB033550_1988_33.3431887795_134.9307404236" totalcount="4" value="?"/>
-                    <sequence id="Sequence.1" spec="Sequence" taxon="AB033554_1985_-2.3045941592_118.5275669247" totalcount="4" value="?"/>
-                    <sequence id="Sequence.2" spec="Sequence" taxon="AB111946_1998_15.880672531_106.7863444469" totalcount="4" value="?"/>
-                    <sequence id="Sequence.3" spec="Sequence" taxon="AB112066_1999_15.2357758333_97.1170427803" totalcount="4" value="?"/>
-                    <sequence id="Sequence.4" spec="Sequence" taxon="AB112471_2002_10.826174473_100.0321841486" totalcount="4" value="?"/>
-                    <sequence id="Sequence.5" spec="Sequence" taxon="AB117759_2004_11.8647366524_104.4581350327" totalcount="4" value="?"/>
-                    <sequence id="Sequence.6" spec="Sequence" taxon="AB198076_2001_31.3068442593_109.4304560078" totalcount="4" value="?"/>
-                    <sequence id="Sequence.7" spec="Sequence" taxon="AB205128_2000_67.7822238778_83.2782706988" totalcount="4" value="?"/>
-                    <sequence id="Sequence.8" spec="Sequence" taxon="AB205190_2000_7.0869990345_-0.6788566207" totalcount="4" value="?"/>
-                    <sequence id="Sequence.9" spec="Sequence" taxon="AB219428_2002_11.4823584448_122.5890168578" totalcount="4" value="?"/>
-                    <sequence id="Sequence.10" spec="Sequence" taxon="AJ344117_1990_46.339250578_1.5156738165" totalcount="4" value="?"/>
-                    <sequence id="Sequence.11" spec="Sequence" taxon="AY341335_2003_37.779236413_24.2931907174" totalcount="4" value="?"/>
-                    <sequence id="Sequence.12" spec="Sequence" taxon="AY641558_2003_39.8942378947_126.8819515526" totalcount="4" value="?"/>
-                    <sequence id="Sequence.13" spec="Sequence" taxon="AY721605_2004_39.1656946813_32.8656198791" totalcount="4" value="?"/>
-                    <sequence id="Sequence.14" spec="Sequence" taxon="AY738147_1998_-4.6027905391_22.3356877351" totalcount="4" value="?"/>
-                    <sequence id="Sequence.15" spec="Sequence" taxon="DQ060824_1983_-21.3700228571_19.1068796429" totalcount="4" value="?"/>
-                    <sequence id="Sequence.16" spec="Sequence" taxon="DQ315776_2000_17.9831869307_84.5569572724" totalcount="4" value="?"/>
-                </data>
+        <sequence id="Sequence.0" spec="Sequence" taxon="AB033550_1988_33.3431887795_134.9307404236" totalcount="4" value="?"/>
+        <sequence id="Sequence.1" spec="Sequence" taxon="AB033554_1985_-2.3045941592_118.5275669247" totalcount="4" value="?"/>
+        <sequence id="Sequence.2" spec="Sequence" taxon="AB111946_1998_15.880672531_106.7863444469" totalcount="4" value="?"/>
+        <sequence id="Sequence.3" spec="Sequence" taxon="AB112066_1999_15.2357758333_97.1170427803" totalcount="4" value="?"/>
+        <sequence id="Sequence.4" spec="Sequence" taxon="AB112471_2002_10.826174473_100.0321841486" totalcount="4" value="?"/>
+        <sequence id="Sequence.5" spec="Sequence" taxon="AB117759_2004_11.8647366524_104.4581350327" totalcount="4" value="?"/>
+        <sequence id="Sequence.6" spec="Sequence" taxon="AB198076_2001_31.3068442593_109.4304560078" totalcount="4" value="?"/>
+        <sequence id="Sequence.7" spec="Sequence" taxon="AB205128_2000_67.7822238778_83.2782706988" totalcount="4" value="?"/>
+        <sequence id="Sequence.8" spec="Sequence" taxon="AB205190_2000_7.0869990345_-0.6788566207" totalcount="4" value="?"/>
+        <sequence id="Sequence.9" spec="Sequence" taxon="AB219428_2002_11.4823584448_122.5890168578" totalcount="4" value="?"/>
+        <sequence id="Sequence.10" spec="Sequence" taxon="AJ344117_1990_46.339250578_1.5156738165" totalcount="4" value="?"/>
+        <sequence id="Sequence.11" spec="Sequence" taxon="AY341335_2003_37.779236413_24.2931907174" totalcount="4" value="?"/>
+        <sequence id="Sequence.12" spec="Sequence" taxon="AY641558_2003_39.8942378947_126.8819515526" totalcount="4" value="?"/>
+        <sequence id="Sequence.13" spec="Sequence" taxon="AY721605_2004_39.1656946813_32.8656198791" totalcount="4" value="?"/>
+        <sequence id="Sequence.14" spec="Sequence" taxon="AY738147_1998_-4.6027905391_22.3356877351" totalcount="4" value="?"/>
+        <sequence id="Sequence.15" spec="Sequence" taxon="DQ060824_1983_-21.3700228571_19.1068796429" totalcount="4" value="?"/>
+        <sequence id="Sequence.16" spec="Sequence" taxon="DQ315776_2000_17.9831869307_84.5569572724" totalcount="4" value="?"/>
+    </data>
 
+    <map name="Uniform" >beast.base.inference.distribution.Uniform</map>
 
-    
+    <map name="Exponential" >beast.base.inference.distribution.Exponential</map>
 
+    <map name="LogNormal" >beast.base.inference.distribution.LogNormalDistributionModel</map>
 
-    
+    <map name="Normal" >beast.base.inference.distribution.Normal</map>
 
+    <map name="Beta" >beast.base.inference.distribution.Beta</map>
 
-    
-<map name="Uniform" >beast.math.distributions.Uniform</map>
-<map name="Exponential" >beast.math.distributions.Exponential</map>
-<map name="LogNormal" >beast.math.distributions.LogNormalDistributionModel</map>
-<map name="Normal" >beast.math.distributions.Normal</map>
-<map name="Beta" >beast.math.distributions.Beta</map>
-<map name="Gamma" >beast.math.distributions.Gamma</map>
-<map name="LaplaceDistribution" >beast.math.distributions.LaplaceDistribution</map>
-<map name="prior" >beast.math.distributions.Prior</map>
-<map name="InverseGamma" >beast.math.distributions.InverseGamma</map>
-<map name="OneOnX" >beast.math.distributions.OneOnX</map>
+    <map name="Gamma" >beast.base.inference.distribution.Gamma</map>
 
+    <map name="LaplaceDistribution" >beast.base.inference.distribution.LaplaceDistribution</map>
 
-<run id="mcmc" spec="MCMC" chainLength="1000000">
-    <state id="state" spec="State" storeEvery="5000">
-        <stateNode id="treeIndex.t:tree" spec="parameter.IntegerParameter" lower="0" upper="1">0</stateNode>
-        <stateNode id="Tree.t:tree" spec="beast.evolution.tree.IndexedTreeFromSet" index="@treeIndex.t:tree" treeSetFile="/private/tmp/HBVnogeo.trees">
-            <taxonset id="taxonset.HBVnogeo" spec="TaxonSet">
-                <taxon id="AB033550_1988_33.3431887795_134.9307404236" spec="Taxon"/>
-                <taxon id="AB033554_1985_-2.3045941592_118.5275669247" spec="Taxon"/>
-                <taxon id="AB111946_1998_15.880672531_106.7863444469" spec="Taxon"/>
-                <taxon id="AB112066_1999_15.2357758333_97.1170427803" spec="Taxon"/>
-                <taxon id="AB112471_2002_10.826174473_100.0321841486" spec="Taxon"/>
-                <taxon id="AB117759_2004_11.8647366524_104.4581350327" spec="Taxon"/>
-                <taxon id="AB198076_2001_31.3068442593_109.4304560078" spec="Taxon"/>
-                <taxon id="AB205128_2000_67.7822238778_83.2782706988" spec="Taxon"/>
-                <taxon id="AB205190_2000_7.0869990345_-0.6788566207" spec="Taxon"/>
-                <taxon id="AB219428_2002_11.4823584448_122.5890168578" spec="Taxon"/>
-                <taxon id="AJ344117_1990_46.339250578_1.5156738165" spec="Taxon"/>
-                <taxon id="AY341335_2003_37.779236413_24.2931907174" spec="Taxon"/>
-                <taxon id="AY641558_2003_39.8942378947_126.8819515526" spec="Taxon"/>
-                <taxon id="AY721605_2004_39.1656946813_32.8656198791" spec="Taxon"/>
-                <taxon id="AY738147_1998_-4.6027905391_22.3356877351" spec="Taxon"/>
-                <taxon id="DQ060824_1983_-21.3700228571_19.1068796429" spec="Taxon"/>
-                <taxon id="DQ315776_2000_17.9831869307_84.5569572724" spec="Taxon"/>
-            </taxonset>
-        </stateNode>
-        <parameter id="ucldMean.c:geo" spec="parameter.RealParameter" name="stateNode">1.0</parameter>
-        <parameter id="ucldStdev.c:geo" spec="parameter.RealParameter" lower="0.0" name="stateNode" upper="2.0">0.1</parameter>
-        <stateNode id="rateCategories.c:geo" spec="parameter.IntegerParameter" dimension="32">1</stateNode>
-    </state>
+    <map name="prior" >beast.base.inference.distribution.Prior</map>
 
-    <distribution id="posterior" spec="util.CompoundDistribution">
-        <distribution id="prior" spec="util.CompoundDistribution">
-            <distribution id="FixedTreeModel.t:tree" spec="beast.evolution.tree.FixedTreeDistribution" tree="@Tree.t:tree"/>
-            <prior id="MeanRatePrior.c:geo" name="distribution" x="@ucldMean.c:geo">
-                <Uniform id="Uniform.2" name="distr" upper="Infinity"/>
-            </prior>
-            <prior id="ucldStdevPrior.c:geo" name="distribution" x="@ucldStdev.c:geo">
-                <Gamma id="Gamma.0" name="distr">
-                    <parameter id="RealParameter.5" spec="parameter.RealParameter" estimate="false" name="alpha">0.5396</parameter>
-                    <parameter id="RealParameter.6" spec="parameter.RealParameter" estimate="false" name="beta">0.3819</parameter>
-                </Gamma>
-            </prior>
-        </distribution>
-        <distribution id="likelihood" spec="util.CompoundDistribution" useThreads="true">
-            <distribution id="treeLikelihood.HBVnogeo" spec="FixedTreeLikelihood" tree="@Tree.t:tree">
-                <data idref="HBVnogeo"/>
-                <siteModel id="FixedSiteModel.s:HBVnogeo" spec="FixedSiteModel">
-                    <parameter id="RealParameter.0" spec="parameter.RealParameter" estimate="false" lower="0.0" name="mutationRate" upper="1.0">1.0</parameter>
-                    <parameter id="RealParameter.1" spec="parameter.RealParameter" lower="0.0" name="shape" upper="0.0">1.0</parameter>
-                    <parameter id="RealParameter.2" spec="parameter.RealParameter" lower="0.0" name="proportionInvariant" upper="0.0">0.0</parameter>
-                </siteModel>
-                <branchRateModel id="FixedClock.c:HBVnogeo" spec="beast.evolution.branchratemodel.FixedClockModel">
-                    <parameter id="RealParameter.3" spec="parameter.RealParameter" estimate="false" name="clock.rate">1.0</parameter>
-                </branchRateModel>
+    <map name="InverseGamma" >beast.base.inference.distribution.InverseGamma</map>
+
+    <map name="OneOnX" >beast.base.inference.distribution.OneOnX</map>
+
+    <run id="mcmc" spec="MCMC" chainLength="1000000">
+        <state id="state" spec="State" storeEvery="5000">
+            <stateNode id="treeIndex.t:tree" spec="parameter.IntegerParameter" lower="0" upper="1">0</stateNode>
+            <stateNode id="Tree.t:tree" spec="fixedtreeanalysis.evolution.tree.IndexedTreeFromSet" index="@treeIndex.t:tree" treeSetFile="/Users/remco/workspace/FixedTreeAnalysis/doc/tree-set-tutorial/data/HBVnogeo.trees">
+                <taxonset id="taxonset.HBVnogeo" spec="TaxonSet">
+                    <taxon id="AB033550_1988_33.3431887795_134.9307404236" spec="Taxon"/>
+                    <taxon id="AB033554_1985_-2.3045941592_118.5275669247" spec="Taxon"/>
+                    <taxon id="AB111946_1998_15.880672531_106.7863444469" spec="Taxon"/>
+                    <taxon id="AB112066_1999_15.2357758333_97.1170427803" spec="Taxon"/>
+                    <taxon id="AB112471_2002_10.826174473_100.0321841486" spec="Taxon"/>
+                    <taxon id="AB117759_2004_11.8647366524_104.4581350327" spec="Taxon"/>
+                    <taxon id="AB198076_2001_31.3068442593_109.4304560078" spec="Taxon"/>
+                    <taxon id="AB205128_2000_67.7822238778_83.2782706988" spec="Taxon"/>
+                    <taxon id="AB205190_2000_7.0869990345_-0.6788566207" spec="Taxon"/>
+                    <taxon id="AB219428_2002_11.4823584448_122.5890168578" spec="Taxon"/>
+                    <taxon id="AJ344117_1990_46.339250578_1.5156738165" spec="Taxon"/>
+                    <taxon id="AY341335_2003_37.779236413_24.2931907174" spec="Taxon"/>
+                    <taxon id="AY641558_2003_39.8942378947_126.8819515526" spec="Taxon"/>
+                    <taxon id="AY721605_2004_39.1656946813_32.8656198791" spec="Taxon"/>
+                    <taxon id="AY738147_1998_-4.6027905391_22.3356877351" spec="Taxon"/>
+                    <taxon id="DQ060824_1983_-21.3700228571_19.1068796429" spec="Taxon"/>
+                    <taxon id="DQ315776_2000_17.9831869307_84.5569572724" spec="Taxon"/>
+                </taxonset>
+            </stateNode>
+            <parameter id="ORCucldMean.c:geo" spec="parameter.RealParameter" name="stateNode">1.0</parameter>
+            <parameter id="ORCsigma.c:geo" spec="parameter.RealParameter" lower="0.0" name="stateNode">0.2</parameter>
+            <parameter id="ORCRates.c:geo" spec="parameter.RealParameter" dimension="32" lower="1.0E-100" name="stateNode">0.5</parameter>
+        </state>
+        <distribution id="posterior" spec="CompoundDistribution">
+            <distribution id="prior" spec="CompoundDistribution">
+                <distribution id="FixedTreeModel.t:tree" spec="fixedtreeanalysis.evolution.tree.FixedTreeDistribution" tree="@Tree.t:tree"/>
+                <prior id="ORCsigmaPrior.c:geo" name="distribution" x="@ORCsigma.c:geo">
+                    <Gamma id="Gamma.1" name="distr">
+                        <parameter id="RealParameter.8" spec="parameter.RealParameter" estimate="false" name="alpha">5.0</parameter>
+                        <parameter id="RealParameter.9" spec="parameter.RealParameter" estimate="false" name="beta">0.05</parameter>
+                    </Gamma>
+                </prior>
+                <prior id="ORCucldMeanPrior.c:geo" name="distribution" x="@ORCucldMean.c:geo">
+                    <Gamma id="Gamma.2" name="distr">
+                        <alpha id="Function$Constant.0" spec="Function$Constant" value="0.1"/>
+                        <beta id="Function$Constant.1" spec="Function$Constant" value="100.0"/>
+                    </Gamma>
+                </prior>
+                <prior id="ORCRatePriorDistribution.c:geo" name="distribution" x="@ORCRates.c:geo">
+                    <LogNormal id="LogNormalDistributionModel.0" S="@ORCsigma.c:geo" meanInRealSpace="true" name="distr">
+                        <parameter id="RealParameter.7" spec="parameter.RealParameter" estimate="false" name="M">1.0</parameter>
+                    </LogNormal>
+                </prior>
             </distribution>
-            <distribution id="slocationtreeLikelihood.geo" spec="sphericalGeo.ApproxMultivariateTraitLikelihood" tree="@Tree.t:tree">
-                <data
+            <distribution id="likelihood" spec="CompoundDistribution" useThreads="true">
+                <distribution id="treeLikelihood.HBVnogeo" spec="fixedtreeanalysis.evolution.likelihood.FixedTreeLikelihood" tree="@Tree.t:tree">
+                    <data idref="HBVnogeo"/>
+                    <siteModel id="FixedSiteModel.s:HBVnogeo" spec="fixedtreeanalysis.evolution.sitemodel.FixedSiteModel">
+                        <parameter id="RealParameter.0" spec="parameter.RealParameter" estimate="false" lower="0.0" name="mutationRate" upper="1.0">1.0</parameter>
+                        <parameter id="RealParameter.1" spec="parameter.RealParameter" lower="0.0" name="shape" upper="0.0">1.0</parameter>
+                        <parameter id="RealParameter.2" spec="parameter.RealParameter" lower="0.0" name="proportionInvariant" upper="0.0">0.0</parameter>
+                        <substModel id="JC69.s:HBVnogeo" spec="JukesCantor"/>
+                    </siteModel>
+                    <branchRateModel id="FixedClock.c:HBVnogeo" spec="fixedtreeanalysis.evolution.branchratemodel.FixedClockModel">
+                        <parameter id="RealParameter.3" spec="parameter.RealParameter" estimate="false" name="clock.rate">1.0</parameter>
+                    </branchRateModel>
+                </distribution>
+                <distribution id="slocationtreeLikelihood.geo" spec="sphericalGeo.ApproxMultivariateTraitLikelihood" tree="@Tree.t:tree">
+                    <data
 id="geo"
 spec="sphericalGeo.AlignmentFromTraitMap">
-                    <traitMap id="traitmap.s:geo" spec="sphericalGeo.TreeTraitMap" initByMean="true" randomizelower="-90 -180" randomizeupper="90 180" traitName="location" tree="@Tree.t:tree">
-                        <parameter id="location.s:geo" spec="sphericalGeo.LocationParameter" dimension="66" minordimension="2">0.0 0.0</parameter>
-                        AB033550_1988_33.3431887795_134.9307404236=33.3431887795 134.9307404236,
+                        <traitMap id="traitmap.s:geo" spec="sphericalGeo.TreeTraitMap" initByMean="true" randomizelower="-90 -180" randomizeupper="90 180" traitName="location" tree="@Tree.t:tree">
+                            <parameter id="location.s:geo" spec="sphericalGeo.LocationParameter" dimension="66" minordimension="2">0.0 0.0</parameter>
+                                                    AB033550_1988_33.3431887795_134.9307404236=33.3431887795 134.9307404236,
+
 AB033554_1985_-2.3045941592_118.5275669247=-2.3045941592 118.5275669247,
+
 AB111946_1998_15.880672531_106.7863444469=15.880672531 106.7863444469,
+
 AB112066_1999_15.2357758333_97.1170427803=15.2357758333 97.1170427803,
+
 AB112471_2002_10.826174473_100.0321841486=10.826174473 100.0321841486,
+
 AB117759_2004_11.8647366524_104.4581350327=11.8647366524 104.4581350327,
+
 AB198076_2001_31.3068442593_109.4304560078=31.3068442593 109.4304560078,
+
 AB205128_2000_67.7822238778_83.2782706988=67.7822238778 83.2782706988,
+
 AB205190_2000_7.0869990345_-0.6788566207=7.0869990345 -0.6788566207,
+
 AB219428_2002_11.4823584448_122.5890168578=11.4823584448 122.5890168578,
+
 AJ344117_1990_46.339250578_1.5156738165=46.339250578 1.5156738165,
+
 AY341335_2003_37.779236413_24.2931907174=37.779236413 24.2931907174,
+
 AY641558_2003_39.8942378947_126.8819515526=39.8942378947 126.8819515526,
+
 AY721605_2004_39.1656946813_32.8656198791=39.1656946813 32.8656198791,
+
 AY738147_1998_-4.6027905391_22.3356877351=-4.6027905391 22.3356877351,
+
 DQ060824_1983_-21.3700228571_19.1068796429=-21.3700228571 19.1068796429,
-DQ315776_2000_17.9831869307_84.5569572724=17.9831869307 84.5569572724                    </traitMap>
-                    <userDataType id="LocationDataType.0" spec="sphericalGeo.LocationDataType"/>
-                </data>
-                <siteModel id="geoContSiteModel.s:geo" spec="SiteModel">
-                    <substModel id="sdiffusionModel.s:geo" spec="sphericalGeo.SphericalDiffusionModel" fast="true">
-                        <parameter id="sprecision.s:geo" spec="parameter.RealParameter" lower="0.0" name="precision">100.0</parameter>
-                    </substModel>
-                </siteModel>
-                <branchRateModel id="RelaxedClock.c:geo" spec="beast.evolution.branchratemodel.UCRelaxedClockModel" clock.rate="@ucldMean.c:geo" rateCategories="@rateCategories.c:geo" tree="@Tree.t:tree">
-                    <LogNormal id="LogNormalDistributionModel.c:geo" S="@ucldStdev.c:geo" meanInRealSpace="true" name="distr">
-                        <parameter id="RealParameter.4" spec="parameter.RealParameter" estimate="false" lower="0.0" name="M" upper="1.0">1.0</parameter>
-                    </LogNormal>
-                </branchRateModel>
+
+DQ315776_2000_17.9831869307_84.5569572724=17.9831869307 84.5569572724                    
+                        </traitMap>
+                        <userDataType id="LocationDataType.0" spec="sphericalGeo.LocationDataType"/>
+                    </data>
+                    <siteModel id="geoContSiteModel.s:geo" spec="sphericalGeo.sitemodel.GeoSiteModel">
+                        <substModel id="sdiffusionModel.s:geo" spec="sphericalGeo.SphericalDiffusionModel" fast="true">
+                            <parameter id="sprecision.s:geo" spec="parameter.RealParameter" lower="0.0" name="precision">100.0</parameter>
+                        </substModel>
+                    </siteModel>
+                    <branchRateModel id="OptimisedRelaxedClock.c:geo" spec="beast.base.evolution.branchratemodel.UCRelaxedClockModel" clock.rate="@ORCucldMean.c:geo" rates="@ORCRates.c:geo" tree="@Tree.t:tree">
+                        <LogNormal id="ORCLogNormalDistributionModel.c:geo" S="@ORCsigma.c:geo" meanInRealSpace="true" name="distr">
+                            <parameter id="RealParameter.6" spec="parameter.RealParameter" estimate="false" name="M">1.0</parameter>
+                        </LogNormal>
+                    </branchRateModel>
+                </distribution>
             </distribution>
         </distribution>
-    </distribution>
-
-    <operator id="treeIndexUniform" spec="UniformGibbsOperator" parameter="@treeIndex.t:tree" weight="3.0"/>
-
-    <operator id="ucldMeanScaler.c:geo" spec="ScaleOperator" parameter="@ucldMean.c:geo" scaleFactor="0.5" weight="1.0"/>
-
-    <operator id="ucldStdevScaler.c:geo" spec="ScaleOperator" parameter="@ucldStdev.c:geo" scaleFactor="0.5" weight="3.0"/>
-
-    <operator id="CategoriesRandomWalk.c:geo" spec="IntRandomWalkOperator" parameter="@rateCategories.c:geo" weight="10.0" windowSize="1"/>
-
-    <operator id="CategoriesSwapOperator.c:geo" spec="SwapOperator" intparameter="@rateCategories.c:geo" weight="10.0"/>
-
-    <operator id="CategoriesUniform.c:geo" spec="UniformOperator" parameter="@rateCategories.c:geo" weight="10.0"/>
-
-    <operator id="relaxedUpDownOperator.c:geo" spec="UpDownOperator" scaleFactor="0.75" weight="3.0">
-        <up idref="ucldMean.c:geo"/>
-        <down idref="Tree.t:tree"/>
-    </operator>
-
-    <logger id="tracelog" spec="Logger" fileName="$(filebase).log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
-        <log idref="posterior"/>
-        <log idref="likelihood"/>
-        <log idref="prior"/>
-        <log idref="treeLikelihood.HBVnogeo"/>
-        <log idref="slocationtreeLikelihood.geo"/>
-        <log idref="sprecision.s:geo"/>
-        <log idref="ucldMean.c:geo"/>
-        <log idref="ucldStdev.c:geo"/>
-        <log id="rate.c:geo" spec="beast.evolution.branchratemodel.RateStatistic" branchratemodel="@RelaxedClock.c:geo" tree="@Tree.t:tree"/>
-    </logger>
-
-    <logger id="screenlog" spec="Logger" logEvery="100000">
-        <log idref="posterior"/>
-        <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
-        <log idref="likelihood"/>
-        <log idref="prior"/>
-    </logger>
-
-    <logger id="treelog.t:tree" spec="Logger" fileName="$(filebase).trees" logEvery="1000" mode="tree">
-        <log id="TreeWithMetaDataLogger.t:tree" spec="beast.evolution.tree.TreeWithMetaDataLogger" branchratemodel="@RelaxedClock.c:geo" tree="@Tree.t:tree">
-            <metadata id="locationsgeo" spec="sphericalGeo.TraitFunction" likelihood="@slocationtreeLikelihood.geo">0.0</metadata>
-        </log>
-    </logger>
-
-    <operatorschedule id="OperatorSchedule" spec="OperatorSchedule"/>
-
-</run>
+        <operator id="treeIndexUniform" spec="fixedtreeanalysis.evolution.operators.UniformGibbsOperator" parameter="@treeIndex.t:tree" weight="3.0"/>
+        <operator id="ORCucldMeanScaler.c:geo" spec="ScaleOperator" parameter="@ORCucldMean.c:geo" scaleFactor="0.5" weight="3.0"/>
+        <operator id="ORC.UpDown.c:geo" spec="operator.kernel.BactrianUpDownOperator" scaleFactor="0.75" weight="3.0">
+            <up idref="ORCucldMean.c:geo"/>
+            <down idref="Tree.t:tree"/>
+        </operator>
+        <operator id="ORCAdaptableOperatorSampler_sigma.c:geo" spec="AdaptableOperatorSampler" weight="3.0">
+            <parameter idref="ORCsigma.c:geo"/>
+            <operator id="ORCucldStdevScaler.c:geo" spec="orc.consoperators.UcldScalerOperator" distr="@ORCLogNormalDistributionModel.c:geo" rates="@ORCRates.c:geo" scaleFactor="0.5" stdev="@ORCsigma.c:geo" weight="1.0">
+                <kernel id="KernelDistribution$Bactrian.6" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCUcldStdevRandomWalk.c:geo" spec="operator.kernel.BactrianRandomWalkOperator" parameter="@ORCsigma.c:geo" scaleFactor="0.1" weight="1.0">
+                <kernelDistribution id="KernelDistribution$Bactrian.7" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCUcldStdevScale.c:geo" spec="kernel.BactrianScaleOperator" parameter="@ORCsigma.c:geo" scaleFactor="0.5" upper="10.0" weight="1.0">
+                <kernelDistribution id="KernelDistribution$Bactrian.8" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCSampleFromPriorOperator_sigma.c:geo" spec="orc.operators.SampleFromPriorOperator" parameter="@ORCsigma.c:geo" prior2="@ORCsigmaPrior.c:geo" weight="1.0"/>
+        </operator>
+        <operator id="ORCAdaptableOperatorSampler_rates_root.c:geo" spec="AdaptableOperatorSampler" weight="1.0">
+            <parameter idref="ORCRates.c:geo"/>
+            <tree idref="Tree.t:tree"/>
+            <operator id="ORCRootOperator1.c:geo" spec="orc.consoperators.SimpleDistance" clockModel="@OptimisedRelaxedClock.c:geo" rates="@ORCRates.c:geo" tree="@Tree.t:tree" twindowSize="0.005" weight="1.0">
+                <kernel id="KernelDistribution$Bactrian.9" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCRootOperator2.c:geo" spec="orc.consoperators.SmallPulley" clockModel="@OptimisedRelaxedClock.c:geo" dwindowSize="0.005" rates="@ORCRates.c:geo" tree="@Tree.t:tree" weight="1.0">
+                <kernel id="KernelDistribution$Bactrian.10" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+        </operator>
+        <operator id="ORCAdaptableOperatorSampler_rates_internal.c:geo" spec="AdaptableOperatorSampler" weight="20.0">
+            <parameter idref="ORCRates.c:geo"/>
+            <tree idref="Tree.t:tree"/>
+            <operator id="ORCInternalnodesOperator.c:geo" spec="orc.consoperators.InConstantDistanceOperator" clockModel="@OptimisedRelaxedClock.c:geo" rates="@ORCRates.c:geo" tree="@Tree.t:tree" twindowSize="0.005" weight="1.0">
+                <kernel id="KernelDistribution$Bactrian.11" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCRatesRandomWalk.c:geo" spec="operator.kernel.BactrianRandomWalkOperator" parameter="@ORCRates.c:geo" scaleFactor="0.1" weight="1.0">
+                <kernelDistribution id="KernelDistribution$Bactrian.12" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCRatesScale.c:geo" spec="kernel.BactrianScaleOperator" parameter="@ORCRates.c:geo" scaleFactor="0.5" upper="10.0" weight="1.0">
+                <kernelDistribution id="KernelDistribution$Bactrian.13" spec="operator.kernel.KernelDistribution$Bactrian"/>
+            </operator>
+            <operator id="ORCSampleFromPriorOperator.rates.c:geo" spec="orc.operators.SampleFromPriorOperator" parameter="@ORCRates.c:geo" prior2="@ORCRatePriorDistribution.c:geo" weight="1.0"/>
+        </operator>
+        <operator id="ORCAdaptableOperatorSampler_NER.c:geo" spec="AdaptableOperatorSampler" weight="15.0">
+            <tree idref="Tree.t:tree"/>
+            <operator id="ORCNER_null.c:geo" spec="Exchange" tree="@Tree.t:tree" weight="0.0"/>
+            <operator id="ORCNER_dAE_dBE_dCE.c:geo" spec="orc.ner.NEROperator_dAE_dBE_dCE" rates="@ORCRates.c:geo" tree="@Tree.t:tree" weight="1.0"/>
+            <metric id="RNNIMetric.0" spec="beastlabs.evolution.tree.RNNIMetric">
+                <taxonset id="TaxonSet.geo" spec="TaxonSet" alignment="@geo"/>
+            </metric>
+        </operator>
+        <logger id="tracelog" spec="Logger" fileName="$(filebase).log" logEvery="1000" model="@posterior" sanitiseHeaders="true" sort="smart">
+            <log idref="posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+            <log idref="treeLikelihood.HBVnogeo"/>
+            <log idref="slocationtreeLikelihood.geo"/>
+            <log idref="sprecision.s:geo"/>
+            <log idref="ORCucldMean.c:geo"/>
+            <log idref="ORCsigma.c:geo"/>
+            <log id="ORCRatesStat.c:geo" spec="beast.base.evolution.RateStatistic" branchratemodel="@OptimisedRelaxedClock.c:geo" tree="@Tree.t:tree"/>
+        </logger>
+        <logger id="screenlog" spec="Logger" logEvery="100000">
+            <log idref="posterior"/>
+            <log id="ESS.0" spec="util.ESS" arg="@posterior"/>
+            <log idref="likelihood"/>
+            <log idref="prior"/>
+        </logger>
+        <logger id="treelog.t:tree" spec="Logger" fileName="$(filebase).trees" logEvery="1000" mode="tree">
+            <log id="TreeWithMetaDataLogger.t:tree" spec="beast.base.evolution.TreeWithMetaDataLogger" branchratemodel="@OptimisedRelaxedClock.c:geo" tree="@Tree.t:tree">
+                <metadata id="locationsgeo" spec="sphericalGeo.TraitFunction" likelihood="@slocationtreeLikelihood.geo">0.0</metadata>
+            </log>
+        </logger>
+        <operatorschedule id="OperatorSchedule" spec="OperatorSchedule"/>
+    </run>
 
 </beast>

@@ -3,7 +3,7 @@ author: Remco Bouckaert
 level: Intermediate
 title: Tree Posterior Analysis Tutorial
 subtitle: For post-hoc analyses
-beastversion: 2.6.3
+beastversion: 2.7.4
 ---
 
 
@@ -15,7 +15,7 @@ It can be useful to run a post-hoc analysis where a tree posterior is available 
 * when estimating epidemiological parameters and using a computationally intensive tree prior, like compartimentalised models such as MASCOT.
 * when you are interested in the ancestral reconstruction of internal nodes (e.g. a discrete trait analysis (DTA)) on a large tree, and another post-hoc DTA can be done quickly afterwards.
 
-Be aware that using a tree posterior instead of using a joint analysis has the potential to result in biased estimates of the parameters of interest. Let the tree set be
+Be aware that using a tree posterior instead of using a joint analysis has the potential to result in biased estimates of the parameters of interest. 
 
 In this tutorial, we will look at a phylogeographical reconstruction {% cite  bouckaert2015phylogeography --file master-refs.bib %} of influenze HBV through Africa and Asia.
 
@@ -25,7 +25,7 @@ In this tutorial, we will look at a phylogeographical reconstruction {% cite  bo
 
 ### BEAST2 - Bayesian Evolutionary Analysis Sampling Trees 2
 
-BEAST2 is a free software package for Bayesian evolutionary analysis of molecular sequences using MCMC and strictly oriented toward inference using rooted, time-measured phylogenetic trees {% cite Bouckaert2014,bouckaert2019beast --file master-refs.bib %}. This tutorial uses the BEAST2 version 2.6.3.
+BEAST2 is a free software package for Bayesian evolutionary analysis of molecular sequences using MCMC and strictly oriented toward inference using rooted, time-measured phylogenetic trees {% cite Bouckaert2014,bouckaert2019beast --file master-refs.bib %}. This tutorial uses the BEAST2 version 2.7.4.
 
 ### BEAUti2 - Bayesian Evolutionary Analysis Utility
 
@@ -47,6 +47,7 @@ We will set up an analysis in BEAUti using a fixed tree partition. We add a sphe
 > * Click to the `File => Manage packages` menu item.
 > * Select `FixedTreeAnalysis` in the list of packages and the click `Install` button.
 > * Select `GEO_SPHERE` and the click `Install` button.
+> * If ORC v1.1.2 or better is not installed yet, select `ORC` and the click `Install` button.
 > * Close BEAUti -- it needs to restart to pick up the new packages.
 
 
@@ -119,7 +120,7 @@ A second partition should now have been added to the partitions panel. If necess
 
 > * Select the clock model panel
 > * Selec the `geo` partition in the list on the left
-> * Change the clock  model from `Strict clock` to `Relaxed Clock Log Normal`
+> * Change the clock  model from `Strict clock` to `Optimised relaxed clock`
 
 <figure>
 	<a id="fig:BEAUti4"></a>
