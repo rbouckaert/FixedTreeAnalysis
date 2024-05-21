@@ -31,6 +31,7 @@ public class IndexedTreeFromSet extends Tree implements ModedTree {
 
 	List<Tree> trees;
 	mode _mode = mode.initial;
+	private String myID;
 	public mode getMode() {return _mode;}
 
 	@Override
@@ -99,7 +100,9 @@ public class IndexedTreeFromSet extends Tree implements ModedTree {
 				relabel(names, tree.getRoot());
 			}
 		
+			myID = getID();
 			this.assignFrom(trees.get(indexInput.get().getValue()));
+			setID(myID);
 			nodeCount = trees.get(0).getRoot().getNodeCount();
 			super.initAndValidate();
 
@@ -194,6 +197,7 @@ public class IndexedTreeFromSet extends Tree implements ModedTree {
 	@Override
 	protected boolean requiresRecalculation() {
 		this.assignFrom(trees.get(indexInput.get().getValue()));		
+		setID(myID);
 		getRoot().makeAllDirty(IS_FILTHY);
 		hasStartedEditing = true;
 		return super.requiresRecalculation();
