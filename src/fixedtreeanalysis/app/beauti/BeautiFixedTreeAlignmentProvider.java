@@ -1,25 +1,15 @@
 package fixedtreeanalysis.app.beauti;
 
+
 import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-//import javax.swing.BoxLayout;
-//import javax.swing.Icon;
-//import javax.swing.ImageIcon;
-//import javax.swing.JDialog;
-//import javax.swing.JOptionPane;
-//import javax.swing.JPanel;
-//import javax.swing.border.EmptyBorder;
-
 import beastfx.app.inputeditor.BeautiDoc;
 import beastfx.app.inputeditor.BooleanInputEditor;
 import beastfx.app.inputeditor.InputEditor.ExpandOption;
-import beastfx.app.inputeditor.InputEditorFactory;
-import beastfx.app.tools.ModelBuilder;
 import beastfx.app.util.Alert;
 import beastfx.app.util.FXUtils;
 import fixedtreeanalysis.evolution.likelihood.FixedTreeLikelihood;
@@ -37,7 +27,6 @@ import beast.base.inference.State;
 import beast.base.evolution.alignment.Alignment;
 import beast.base.evolution.alignment.Sequence;
 import beast.base.evolution.tree.Tree;
-import beast.pkgmgmt.BEASTClassLoader;
 import beast.base.parser.NexusParser;
 import beast.base.evolution.tree.TreeParser;
 
@@ -180,7 +169,7 @@ public class BeautiFixedTreeAlignmentProvider extends BeautiFixedAlignmentProvid
 //
 //		        dialog.setVisible(true);
 //		        Integer value = (Integer) optionPane.getValue();
-		        if (value.toString().toLowerCase().contains("ok")) {
+		        if (!value.toString().toLowerCase().contains("ok")) {
 		        	parser.newickInput.setValue(c.stringInput.get(), parser);		        	
 		        	tree.modeInput.set(originalMode); 
 		        }
